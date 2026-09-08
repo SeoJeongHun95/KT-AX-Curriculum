@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="760" viewBox="0 0 1890 760" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/></marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="760" fill="#ffffff"/>
+  <rect x="40" y="40" width="1800" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="90" font-size="30" font-weight="700" fill="#0055ff">상태 — 벡터 저장소 chroma_db + 두 그룹의 점수 목록</text>
+  <text x="80" y="140" font-size="25" fill="#111827">문서 안 질문 5개와 문서 밖 질문 5개의 1위 점수를 재서 사이에 선을 긋는다 · 구축 세 단계는 (1)과 같다</text>
+  <text x="1800" y="95" text-anchor="end" font-size="24" fill="#4b5563">임계값은 남의 숫자가 아니라 내 문서의 분포에서 나온다</text>
+  <rect x="40" y="230" width="260" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="170.0" y="274" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">FAQ CSV</text>
+  <text x="170.0" y="310" text-anchor="middle" font-size="20" fill="#4b5563">구름월드 FAQ 32행</text>
+  <rect x="360" y="230" width="380" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="550.0" y="274" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">① 문서 적재</text>
+  <text x="550.0" y="310" text-anchor="middle" font-size="20" fill="#4b5563">행마다 Document(Q+A, row·category)</text>
+  <rect x="800" y="230" width="340" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="970.0" y="274" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">② 임베딩 준비</text>
+  <text x="970.0" y="310" text-anchor="middle" font-size="20" fill="#4b5563">text-embedding-3-small</text>
+  <rect x="1200" y="230" width="640" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1520.0" y="266" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">③ 저장소 구축·영속</text>
+  <text x="1520.0" y="296" text-anchor="middle" font-size="20" fill="#4b5563">from_documents(persist_directory="chroma_db", ids)</text>
+  <text x="1520.0" y="322" text-anchor="middle" font-size="20" fill="#4b5563">(1)과 같다</text>
+  <path d="M 304 285 L 352 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 744 285 L 792 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1144 285 L 1192 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1520 344 L 1520 395 L 600 395 L 600 446" stroke="#0055ff" stroke-width="4" fill="none" stroke-dasharray="12 8" marker-end="url(#ahb)"/>
+  <text x="1060" y="386" text-anchor="middle" font-size="20" font-weight="700" fill="#0055ff">저장소를 쓴다</text>
+  <rect x="40" y="450" width="260" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="170.0" y="494" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">질문 10개</text>
+  <text x="170.0" y="530" text-anchor="middle" font-size="20" fill="#4b5563">문서 안 5 · 문서 밖 5</text>
+  <rect x="360" y="450" width="480" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="600.0" y="494" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">④ 1위 점수 측정</text>
+  <text x="600.0" y="530" text-anchor="middle" font-size="20" fill="#4b5563">질문마다 k=1 검색 → 점수 표 (그룹 · 질문 · 점수)</text>
+  <rect x="900" y="450" width="420" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8"/>
+  <text x="1110.0" y="494" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">⑤ 임계값 정하기·재판정</text>
+  <text x="1110.0" y="530" text-anchor="middle" font-size="20" fill="#4b5563">겹치지 않으면 두 값의 중간에 긋는다</text>
+  <rect x="1380" y="450" width="460" height="60" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1610.0" y="490.0" text-anchor="middle" font-size="22" font-weight="700" fill="#374151">문서 안 5개 → 모두 통과</text>
+  <rect x="1380" y="530" width="460" height="60" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1610.0" y="570.0" text-anchor="middle" font-size="22" font-weight="700" fill="#374151">문서 밖 5개 → 모두 컷</text>
+  <path d="M 304 505 L 352 505" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 844 505 L 892 505" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1324 490 L 1372 480" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 1324 520 L 1372 560" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <text x="945" y="720" text-anchor="middle" font-size="22" fill="#4b5563">두 그룹이 겹치지 않으면 중간에 긋는다 · 겹치면 임계값 하나로는 가를 수 없다</text>
+</svg>

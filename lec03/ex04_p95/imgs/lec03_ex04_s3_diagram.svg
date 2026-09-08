@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="760" viewBox="0 0 1890 760" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/></marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="760" fill="#ffffff"/>
+  <rect x="40" y="40" width="1800" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="90" font-size="30" font-weight="700" fill="#0055ff">상태 — 벡터 저장소 chroma_library + 대화 기록</text>
+  <text x="80" y="140" font-size="25" fill="#111827">적재 문서가 도서관 FAQ로 바뀌고 도구가 둘(요일·검색) · 한 질문에 도구 두 개를 이어 부르면 루프가 두 바퀴 돈다</text>
+  <text x="1800" y="95" text-anchor="end" font-size="24" fill="#4b5563">TOOLS 표가 도구 이름으로 실제 도구를 찾는다</text>
+  <rect x="40" y="230" width="240" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="160.0" y="274" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">도서관 FAQ CSV</text>
+  <text x="160.0" y="310" text-anchor="middle" font-size="20" fill="#4b5563">실습 3과 같다</text>
+  <rect x="340" y="230" width="360" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="520.0" y="274" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">① 문서 적재</text>
+  <text x="520.0" y="310" text-anchor="middle" font-size="20" fill="#4b5563">행마다 Document(Q+A, row·category)</text>
+  <rect x="760" y="230" width="320" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="920.0" y="274" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">② 임베딩 준비</text>
+  <text x="920.0" y="310" text-anchor="middle" font-size="20" fill="#4b5563">text-embedding-3-small</text>
+  <rect x="1140" y="230" width="700" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1490.0" y="266" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">③ 저장소 구축·영속</text>
+  <text x="1490.0" y="296" text-anchor="middle" font-size="20" fill="#4b5563">from_documents(persist_directory="chroma_library", ids)</text>
+  <text x="1490.0" y="322" text-anchor="middle" font-size="20" fill="#4b5563">서비스 파일은 이 디렉터리를 다시 열어 쓴다</text>
+  <path d="M 284 285 L 332 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 704 285 L 752 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1084 285 L 1132 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1490 344 L 1490 395 L 1520 395 L 1520 426" stroke="#0055ff" stroke-width="4" fill="none" stroke-dasharray="12 8" marker-end="url(#ahb)"/>
+  <text x="1470" y="386" text-anchor="end" font-size="20" font-weight="700" fill="#0055ff">저장소를 쓴다 (④ 검색 → ⑤ 컷)</text>
+  <rect x="40" y="430" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="150.0" y="474" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">사용자</text>
+  <text x="150.0" y="510" text-anchor="middle" font-size="18" fill="#4b5563">HTTP 요청 → JSON 응답</text>
+  <rect x="320" y="430" width="300" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="470.0" y="474" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">서비스 ③ 라우터 /ask</text>
+  <text x="470.0" y="510" text-anchor="middle" font-size="19" fill="#4b5563">AskIn → 처리 함수 → AskOut</text>
+  <rect x="680" y="430" width="460" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="910.0" y="474" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">서비스 ② 에이전트 루프</text>
+  <text x="910.0" y="510" text-anchor="middle" font-size="19" fill="#4b5563">도구 두 개 bind_tools · TOOLS 표 · max_turn 5</text>
+  <rect x="1200" y="430" width="640" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1520.0" y="466" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">⑤ 도구 두 개</text>
+  <text x="1520.0" y="496" text-anchor="middle" font-size="19" fill="#4b5563">today_weekday() → 평일·토요일·일요일 (인자 없음)</text>
+  <text x="1520.0" y="522" text-anchor="middle" font-size="19" fill="#4b5563">faq_search(query) → 임계값 컷 청크 (근거 가드는 여기에만)</text>
+  <path d="M 264 485 L 312 485" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 624 485 L 672 485" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1144 470 L 1192 470" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 1192 500 L 1144 500" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <text x="1168" y="454" text-anchor="middle" font-size="15" font-weight="700" fill="#0055ff">호출</text>
+  <text x="1168" y="534" text-anchor="middle" font-size="15" font-weight="700" fill="#0055ff">되먹임</text>
+  <rect x="680" y="590" width="460" height="60" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="910.0" y="630.0" text-anchor="middle" font-size="19" font-weight="700" fill="#374151">「오늘 몇 시까지 해요」= 요일 도구 → 검색 도구 두 바퀴</text>
+  <path d="M 910 544 L 910 582" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <rect x="1200" y="590" width="640" height="60" rx="12" fill="#f9fafb" stroke="#9ca3af" stroke-width="3"/>
+  <text x="1520.0" y="630.0" text-anchor="middle" font-size="19" font-weight="700" fill="#374151">서비스 ④ fastapi dev app.py --port 8031 → samples_library.json</text>
+  <text x="945" y="720" text-anchor="middle" font-size="22" fill="#4b5563">앞 도구의 결과가 뒤 도구의 질의에 쓰인다 · 부등호·반복 상한·엔드포인트 메서드는 어긋나도 파이썬 오류가 나지 않는다</text>
+</svg>

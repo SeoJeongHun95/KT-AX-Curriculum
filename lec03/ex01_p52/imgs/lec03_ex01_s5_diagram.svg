@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="700" viewBox="0 0 1890 700" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="700" fill="#ffffff"/>
+
+  <!-- 대화 기록 띠 -->
+  <rect x="40" y="40" width="1800" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">대화 기록 — messages 리스트</text>
+  <text x="80" y="150" font-size="28" fill="#111827">HumanMessage 사용자 질문 · AIMessage 모델 응답(요청 2개) · ToolMessage 도구 결과 2개 (요청 순서대로)</text>
+  <text x="1800" y="95" text-anchor="end" font-size="26" fill="#4b5563">모델을 호출할 때마다 전체를 넣는다</text>
+
+  <!-- 대화 기록 ↔ 노드 점선 -->
+  <path d="M 530 190 L 530 275" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 950 190 L 950 275" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="280" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="150" y="348" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- 모델 호출 -->
+  <rect x="400" y="280" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="530" y="328" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">모델 호출</text>
+  <text x="530" y="368" text-anchor="middle" font-size="24" fill="#4b5563">llm_tools.invoke(messages)</text>
+
+  <!-- 판정 -->
+  <rect x="770" y="280" width="360" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8"/>
+  <text x="950" y="328" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">도구 호출 요청 판정</text>
+  <text x="950" y="368" text-anchor="middle" font-size="24" fill="#4b5563">비어 있는가 · 몇 개 실렸는가</text>
+
+  <!-- 최종 답 -->
+  <rect x="1240" y="280" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1360" y="328" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">최종 답</text>
+  <text x="1360" y="368" text-anchor="middle" font-size="24" fill="#4b5563">res.content</text>
+
+  <!-- END -->
+  <rect x="1620" y="280" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1730" y="348" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- 본선 엣지 -->
+  <path d="M 264 335 L 392 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 664 335 L 762 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1134 335 L 1232 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1484 335 L 1612 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1183" y="312" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">비어 있음</text>
+
+  <!-- 동시 실행 상자 -->
+  <rect x="640" y="470" width="620" height="200" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="950" y="506" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">동시 실행 — ThreadPoolExecutor</text>
+  <rect x="660" y="522" width="280" height="80" rx="10" fill="#eef4ff" stroke="#0055ff" stroke-width="2"/>
+  <text x="800" y="554" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">작업 1: get_now()</text>
+  <text x="800" y="586" text-anchor="middle" font-size="22" fill="#4b5563">pool.submit → fut.result()</text>
+  <rect x="960" y="522" width="280" height="80" rx="10" fill="#eef4ff" stroke="#0055ff" stroke-width="2"/>
+  <text x="1100" y="554" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">작업 2: faq_lookup("환불")</text>
+  <text x="1100" y="586" text-anchor="middle" font-size="22" fill="#4b5563">pool.submit → fut.result()</text>
+  <text x="950" y="646" text-anchor="middle" font-size="24" fill="#4b5563">한꺼번에 제출하고, 제출한 순서대로 수거해 ToolMessage로 붙인다</text>
+
+  <!-- 판정 → 동시 실행 -->
+  <path d="M 950 394 L 950 462" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <text x="1070" y="436" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">실려 있음 (2개)</text>
+
+  <!-- 동시 실행 → 모델 호출 (재호출) -->
+  <path d="M 632 570 L 530 570 L 530 398" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <text x="290" y="500" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">다시 호출</text>
+  <text x="290" y="536" text-anchor="middle" font-size="24" fill="#4b5563">도구 실행 시간은 가장 느린</text>
+  <text x="290" y="568" text-anchor="middle" font-size="24" fill="#4b5563">도구 하나만큼 · 한도 4회</text>
+
+  <!-- 도구 목록 -->
+  <rect x="1320" y="470" width="520" height="200" rx="12" fill="#f9fafb" stroke="#9ca3af" stroke-width="3"/>
+  <text x="1580" y="528" text-anchor="middle" font-size="28" font-weight="700" fill="#374151">묶인 도구 (bind_tools)</text>
+  <text x="1580" y="576" text-anchor="middle" font-size="24" fill="#4b5563">faq_lookup(topic) — 약 2초 걸림</text>
+  <text x="1580" y="616" text-anchor="middle" font-size="24" fill="#4b5563">get_now() — 약 2초 걸림</text>
+  <path d="M 1312 570 L 1268 570" stroke="#9ca3af" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+</svg>

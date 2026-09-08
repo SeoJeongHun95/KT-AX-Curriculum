@@ -1,0 +1,10 @@
+.env
+*.json
+!**/samples.json
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+!**/body_*.json
+!**/.claude/settings.json
+**/chroma_db/
+**/chroma_*/

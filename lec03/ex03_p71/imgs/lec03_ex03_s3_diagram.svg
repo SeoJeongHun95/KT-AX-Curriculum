@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="760" viewBox="0 0 1890 760" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/></marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="760" fill="#ffffff"/>
+  <rect x="40" y="40" width="1800" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="90" font-size="30" font-weight="700" fill="#0055ff">상태 — 벡터 저장소 디렉터리 chroma_library</text>
+  <text x="80" y="140" font-size="25" fill="#111827">적재 파일만 바꾸면 같은 다섯 단계 · 필터는 메타데이터의 키·값으로 검색 범위를 좁힌다</text>
+  <text x="1800" y="95" text-anchor="end" font-size="24" fill="#4b5563">다시 열기 = 문서 없이 디렉터리만으로 연다</text>
+  <rect x="40" y="230" width="260" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="170.0" y="274" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">도서관 FAQ CSV</text>
+  <text x="170.0" y="310" text-anchor="middle" font-size="20" fill="#4b5563">library_faq.csv 12행</text>
+  <rect x="360" y="230" width="380" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="550.0" y="274" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">① 문서 적재</text>
+  <text x="550.0" y="310" text-anchor="middle" font-size="20" fill="#4b5563">행마다 Document(Q+A, row·category)</text>
+  <rect x="800" y="230" width="340" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="970.0" y="274" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">② 임베딩 준비</text>
+  <text x="970.0" y="310" text-anchor="middle" font-size="20" fill="#4b5563">text-embedding-3-small</text>
+  <rect x="1200" y="230" width="640" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1520.0" y="266" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">③ 저장소 구축·영속</text>
+  <text x="1520.0" y="296" text-anchor="middle" font-size="20" fill="#4b5563">from_documents(persist_directory="chroma_library", ids)</text>
+  <text x="1520.0" y="322" text-anchor="middle" font-size="20" fill="#4b5563">다시 열기 Chroma(persist_directory=...) → 항목 수 비교</text>
+  <path d="M 304 285 L 352 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 744 285 L 792 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1144 285 L 1192 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1520 344 L 1520 395 L 600 395 L 600 446" stroke="#0055ff" stroke-width="4" fill="none" stroke-dasharray="12 8" marker-end="url(#ahb)"/>
+  <text x="1060" y="386" text-anchor="middle" font-size="20" font-weight="700" fill="#0055ff">저장소를 쓴다</text>
+  <rect x="40" y="450" width="260" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="170.0" y="494" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">질문</text>
+  <text x="170.0" y="530" text-anchor="middle" font-size="20" fill="#4b5563">카테고리가 드러나 있다</text>
+  <rect x="360" y="450" width="480" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="600.0" y="494" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">④ 점수 동반 검색 + 필터</text>
+  <text x="600.0" y="530" text-anchor="middle" font-size="20" fill="#4b5563">filter={"category": "대출"} 안에서만 거리를 잰다</text>
+  <rect x="900" y="450" width="380" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8"/>
+  <text x="1090.0" y="494" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">⑤ 임계값 컷</text>
+  <text x="1090.0" y="530" text-anchor="middle" font-size="20" fill="#4b5563">1위 점수 ≤ 1.5 인가</text>
+  <rect x="1340" y="450" width="500" height="60" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1590.0" y="490.0" text-anchor="middle" font-size="22" font-weight="700" fill="#374151">통과 → 청크 본문을 근거로 쓴다</text>
+  <rect x="1340" y="530" width="500" height="60" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1590.0" y="570.0" text-anchor="middle" font-size="22" font-weight="700" fill="#374151">컷 → 고정 안내 문장</text>
+  <path d="M 304 505 L 352 505" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 844 505 L 892 505" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1284 490 L 1332 480" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 1284 520 L 1332 560" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <text x="1300" y="468" text-anchor="middle" font-size="18" font-weight="700" fill="#0055ff">이하</text>
+  <text x="1300" y="582" text-anchor="middle" font-size="18" font-weight="700" fill="#0055ff">초과</text>
+  <text x="945" y="720" text-anchor="middle" font-size="22" fill="#4b5563">필터 없는 검색과 필터 건 검색을 같은 질문으로 비교한다 · 구축 직후 항목 수 = 다시 연 항목 수</text>
+</svg>

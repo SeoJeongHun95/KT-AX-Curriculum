@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="700" viewBox="0 0 1890 700" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="700" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="50" width="1800" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="105" font-size="30" font-weight="700" fill="#0055ff">상태(State) — WeeklyReport 인스턴스 (중첩)</text>
+  <text x="80" y="160" font-size="28" fill="#111827">week · teams[ team · summary{ decisions · action_items[task · owner · due] · open_questions } ]</text>
+  <text x="1800" y="105" text-anchor="end" font-size="26" fill="#4b5563">변수 하나에 담겨 다음 단계로 넘어간다</text>
+
+  <!-- 상태 ↔ 단계 점선 -->
+  <path d="M 380 200 L 380 285" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 780 200 L 780 285" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1180 200 L 1180 285" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- 회의 메모 -->
+  <rect x="40" y="290" width="160" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="120" y="358" text-anchor="middle" font-size="22" font-weight="700" fill="#374151">두 팀 메모</text>
+
+  <!-- ① 스키마 선언 -->
+  <rect x="260" y="290" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="380" y="338" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">① 스키마 선언</text>
+  <text x="380" y="378" text-anchor="middle" font-size="26" fill="#4b5563">중첩 · 전체 검증기</text>
+
+  <!-- ② 스키마를 건 호출 -->
+  <rect x="660" y="290" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="780" y="338" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">② 스키마를 건 호출</text>
+  <text x="780" y="378" text-anchor="middle" font-size="26" fill="#4b5563">response_format</text>
+
+  <!-- ③ 객체 수신·파싱 -->
+  <rect x="1060" y="290" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1180" y="338" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">③ 객체 수신·파싱</text>
+  <text x="1180" y="378" text-anchor="middle" font-size="26" fill="#4b5563">model_validate_json</text>
+
+  <!-- 담당자별 메시지 -->
+  <rect x="1680" y="290" width="160" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1760" y="348" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">팀별</text>
+  <text x="1760" y="382" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">미결 목록</text>
+
+  <!-- 본선 엣지 -->
+  <path d="M 204 345 L 252 345" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 504 345 L 652 345" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 904 345 L 1052 345" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1304 345 L 1672 345" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="578" y="320" text-anchor="middle" font-size="22" font-weight="700" fill="#0055ff">메모 + 스키마</text>
+  <text x="978" y="320" text-anchor="middle" font-size="22" font-weight="700" fill="#0055ff">JSON 문자열</text>
+  <text x="1488" y="320" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">WeeklyReport 인스턴스</text>
+
+  <!-- ④ 검증 실패 관찰: 본선 밖, 모델 호출 없음 -->
+  <rect x="1060" y="500" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8"/>
+  <text x="1180" y="548" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">④ 검증 실패 관찰</text>
+  <text x="1180" y="588" text-anchor="middle" font-size="26" fill="#4b5563">ValidationError</text>
+
+  <path d="M 380 404 L 380 555 L 1052 555" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="716" y="530" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">일부러 어긋난 입력을 ①의 스키마에 넣는다 (모델 호출 없음)</text>
+</svg>

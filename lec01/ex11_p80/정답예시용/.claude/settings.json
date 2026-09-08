@@ -1,0 +1,36 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.claude/hooks/update_index.py"
+            ],
+            "if": "Write(wiki/*.md)",
+            "timeout": 30,
+            "statusMessage": "학습 노트 목록을 갱신합니다"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.claude/hooks/update_index.py"
+            ],
+            "if": "Edit(wiki/*.md)",
+            "timeout": 30,
+            "statusMessage": "학습 노트 목록을 갱신합니다"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="700" viewBox="0 0 1890 700" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="700" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="40" width="1800" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">상태 — 따로 없음 · 체인은 하나, 부르는 방법이 둘</text>
+  <text x="80" y="150" font-size="26" fill="#111827">모델은 조각 전송이 켜진 상태(streaming=True) · 구조화 출력 없는 텍스트 체인 · 시간을 재는 지점 셋(전체 시작·끝, 첫 조각 도착)</text>
+
+  <!-- 체인 행 -->
+  <rect x="40" y="280" width="260" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="170" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">입력</text>
+  <text x="170" y="366" text-anchor="middle" font-size="22" fill="#4b5563">{faq, question(긴 답)}</text>
+
+  <rect x="380" y="280" width="320" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="540" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">프롬프트 템플릿</text>
+  <text x="540" y="366" text-anchor="middle" font-size="22" fill="#4b5563">(1)과 같음</text>
+
+  <rect x="780" y="280" width="400" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="980" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">모델 (streaming=True)</text>
+  <text x="980" y="366" text-anchor="middle" font-size="22" fill="#4b5563">구조화 출력 없음 → 문자열</text>
+
+  <rect x="1260" y="280" width="300" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1410" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">답 문자열</text>
+  <text x="1410" y="366" text-anchor="middle" font-size="22" fill="#4b5563">한 번에 · 또는 조각으로</text>
+
+  <rect x="1640" y="280" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1740" y="348" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <path d="M 304 335 L 372 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 704 335 L 772 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1184 335 L 1252 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1564 335 L 1632 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="738" y="312" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">|</text>
+
+  <!-- 두 실행 방식 -->
+  <rect x="40" y="470" width="880" height="200" rx="12" fill="#f9fafb" stroke="#9ca3af" stroke-width="3"/>
+  <text x="480" y="510" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">실행 A — 한 번에 받기 (invoke)</text>
+  <rect x="80" y="540" width="700" height="40" rx="6" fill="#dbeafe" stroke="#0055ff" stroke-width="2"/>
+  <text x="430" y="568" text-anchor="middle" font-size="22" fill="#111827">고객이 빈 화면을 보는 시간 = 전체 시간</text>
+  <path d="M 780 560 L 830 560" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <text x="870" y="568" text-anchor="middle" font-size="22" font-weight="700" fill="#0055ff">답</text>
+  <text x="480" y="640" text-anchor="middle" font-size="22" fill="#4b5563">잰다: 시작 → 끝 (전체 시간), 답 글자 수</text>
+
+  <rect x="960" y="470" width="880" height="200" rx="12" fill="#f9fafb" stroke="#9ca3af" stroke-width="3"/>
+  <text x="1400" y="510" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">실행 B — 조각으로 받기 (stream)</text>
+  <rect x="1000" y="540" width="120" height="40" rx="6" fill="#dbeafe" stroke="#0055ff" stroke-width="2"/>
+  <text x="1060" y="568" text-anchor="middle" font-size="20" fill="#111827">첫 조각까지</text>
+  <rect x="1130" y="540" width="70" height="40" rx="6" fill="#eef4ff" stroke="#0055ff" stroke-width="2"/>
+  <rect x="1210" y="540" width="70" height="40" rx="6" fill="#eef4ff" stroke="#0055ff" stroke-width="2"/>
+  <rect x="1290" y="540" width="70" height="40" rx="6" fill="#eef4ff" stroke="#0055ff" stroke-width="2"/>
+  <text x="1400" y="568" text-anchor="middle" font-size="22" fill="#4b5563">…</text>
+  <rect x="1440" y="540" width="70" height="40" rx="6" fill="#eef4ff" stroke="#0055ff" stroke-width="2"/>
+  <rect x="1520" y="540" width="70" height="40" rx="6" fill="#eef4ff" stroke="#0055ff" stroke-width="2"/>
+  <path d="M 1600 560 L 1650 560" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+  <text x="1720" y="568" text-anchor="middle" font-size="22" font-weight="700" fill="#0055ff">조각 n개</text>
+  <text x="1400" y="640" text-anchor="middle" font-size="22" fill="#4b5563">잰다: 시작 → 첫 조각 도착, 조각 수, 시작 → 끝, 이어 붙인 글자 수</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="700" viewBox="0 0 1890 700" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="700" fill="#ffffff"/>
+
+  <!-- 요청·응답 본문 띠 -->
+  <rect x="40" y="50" width="1800" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="105" font-size="30" font-weight="700" fill="#0055ff">요청·응답 본문 — AskRequest</text>
+  <text x="80" y="160" font-size="28" fill="#111827">요청 {"question": 질문 문장} · 응답 {"answer": 답변 문장}</text>
+  <text x="1800" y="105" text-anchor="end" font-size="26" fill="#4b5563">앱이 요청의 모양을 검사한다</text>
+
+  <!-- 띠 ↔ app 점선 -->
+  <path d="M 560 200 L 560 300" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- 개발 서버 영역 -->
+  <rect x="380" y="245" width="1040" height="210" rx="16" fill="#f9fafb" stroke="#9ca3af" stroke-width="3" stroke-dasharray="14 8"/>
+  <text x="400" y="282" font-size="26" fill="#4b5563">fastapi dev 로 켠 개발 서버 — 포트는 코드의 PORT</text>
+
+  <!-- curl (호출하는 쪽) -->
+  <rect x="40" y="305" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="150" y="353" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">curl</text>
+  <text x="150" y="393" text-anchor="middle" font-size="26" fill="#4b5563">호출하는 쪽</text>
+
+  <!-- app -->
+  <rect x="420" y="305" width="280" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="560" y="353" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">app — POST /ask</text>
+  <text x="560" y="393" text-anchor="middle" font-size="26" fill="#4b5563">요청 모양 검사</text>
+
+  <!-- ask 함수 -->
+  <rect x="1000" y="305" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1130" y="353" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">ask 함수</text>
+  <text x="1130" y="393" text-anchor="middle" font-size="26" fill="#4b5563">모델 호출</text>
+
+  <!-- 모델 -->
+  <rect x="1620" y="305" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1730" y="353" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">모델</text>
+  <text x="1730" y="393" text-anchor="middle" font-size="26" fill="#4b5563">gpt-5.6-luna</text>
+
+  <!-- 본선 엣지 (요청 방향) -->
+  <path d="M 264 360 L 412 360" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="338" y="337" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">질문 JSON</text>
+  <path d="M 704 360 L 992 360" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="848" y="337" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">req.question</text>
+  <path d="M 1264 360 L 1612 360" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1438" y="337" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">messages</text>
+
+  <!-- 응답 방향: 모델 → curl -->
+  <path d="M 1730 419 L 1730 560 L 150 560 L 150 423" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="940" y="530" text-anchor="middle" font-size="28" font-weight="700" fill="#0055ff">응답 — 답변 문자열이 ask 함수를 거쳐 {"answer": 답변} JSON 으로 돌아온다</text>
+</svg>

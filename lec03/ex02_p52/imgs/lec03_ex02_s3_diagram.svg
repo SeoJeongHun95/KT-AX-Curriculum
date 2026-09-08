@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="700" viewBox="0 0 1890 700" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="700" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="40" width="1800" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">상태 — 따로 없음 · 부품 사이의 약속이 있다</text>
+  <text x="80" y="150" font-size="26" fill="#111827">템플릿 빈칸 이름 = 입력 키 · 스키마의 칸 이름·타입·값 집합 = 뒤 함수가 읽는 이름·타입·값 집합</text>
+
+  <!-- 입력 -->
+  <rect x="40" y="280" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="150" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">입력</text>
+  <text x="150" y="366" text-anchor="middle" font-size="22" fill="#4b5563">{review}</text>
+
+  <!-- 템플릿 -->
+  <rect x="320" y="280" width="280" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="460" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">프롬프트 템플릿</text>
+  <text x="460" y="366" text-anchor="middle" font-size="22" fill="#4b5563">{review} 자리 → 메시지</text>
+
+  <!-- 모델 -->
+  <rect x="660" y="280" width="380" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="850" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">모델 + 구조화 출력</text>
+  <text x="850" y="366" text-anchor="middle" font-size="22" fill="#4b5563">→ ReviewSummary 객체</text>
+
+  <!-- 함수 -->
+  <rect x="1100" y="280" width="300" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8"/>
+  <text x="1250" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">카드 함수 to_card</text>
+  <text x="1250" y="366" text-anchor="middle" font-size="22" fill="#4b5563">객체 → 카드 문자열</text>
+
+  <!-- 결과 -->
+  <rect x="1460" y="280" width="200" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1560" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#111827">카드</text>
+  <text x="1560" y="366" text-anchor="middle" font-size="22" fill="#4b5563">세 줄 문자열</text>
+
+  <!-- END -->
+  <rect x="1700" y="280" width="140" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1770" y="348" text-anchor="middle" font-size="28" font-weight="700" fill="#374151">END</text>
+
+  <!-- 엣지 -->
+  <path d="M 264 335 L 312 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 604 335 L 652 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1044 335 L 1092 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1404 335 L 1452 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1664 335 L 1692 335" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="628" y="312" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">|</text>
+  <text x="1068" y="312" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">|</text>
+
+  <!-- 세 단계 -->
+  <rect x="40" y="480" width="660" height="170" rx="12" fill="#f9fafb" stroke="#9ca3af" stroke-width="3"/>
+  <text x="350" y="524" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">① 부품 선언</text>
+  <text x="350" y="556" text-anchor="middle" font-size="21" fill="#4b5563">스키마 ReviewSummary: sentiment(선택지) · keywords(리스트) · reply</text>
+  <text x="350" y="586" text-anchor="middle" font-size="21" fill="#4b5563">모델 · 템플릿({review}) · 함수 to_card(객체 → 문자열)</text>
+  <text x="350" y="616" text-anchor="middle" font-size="21" fill="#4b5563">함수의 자격 = 입력 하나를 받아 값 하나를 돌려준다</text>
+
+  <rect x="740" y="480" width="620" height="170" rx="12" fill="#f9fafb" stroke="#9ca3af" stroke-width="3"/>
+  <text x="1050" y="524" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">② 조립</text>
+  <text x="1050" y="570" text-anchor="middle" font-size="20" fill="#4b5563">prompt | llm.with_structured_output(ReviewSummary) | to_card</text>
+  <text x="1050" y="610" text-anchor="middle" font-size="22" fill="#4b5563">체인 끝의 함수가 뒤 단계가 받을 형태로 바꾼다</text>
+
+  <rect x="1400" y="480" width="440" height="170" rx="12" fill="#f9fafb" stroke="#9ca3af" stroke-width="3"/>
+  <text x="1620" y="524" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">③ 실행</text>
+  <text x="1620" y="570" text-anchor="middle" font-size="22" fill="#4b5563">chain.invoke({"review": 리뷰})</text>
+  <text x="1620" y="610" text-anchor="middle" font-size="22" fill="#4b5563">→ 카드 문자열 (리뷰 두 건)</text>
+</svg>
