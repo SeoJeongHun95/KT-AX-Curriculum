@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="800" viewBox="0 0 1890 800" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="800" fill="#ffffff"/>
+  <rect x="40" y="40" width="1810" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">상태(State) — TicketState</text>
+  <text x="80" y="150" font-size="28" fill="#111827">ticket 요청 본문 · level 긴급도(긴급 / 보통 / 일반) · reply 나갈 글 · logged 기록 여부</text>
+  <text x="1810" y="95" text-anchor="end" font-size="26" fill="#4b5563">모든 노드가 함께 읽고 쓴다</text>
+  <path d="M 530 190 L 530 392" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 990 190 L 990 242" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1350 190 L 1350 392" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <rect x="40" y="400" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="150" y="468" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+  <rect x="400" y="400" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="530" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">triage</text>
+  <text x="530" y="488" text-anchor="middle" font-size="26" fill="#4b5563">긴급도 판정</text>
+  <rect x="860" y="250" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="990" y="298" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">escalate</text>
+  <text x="990" y="338" text-anchor="middle" font-size="26" fill="#4b5563">엔지니어 호출문</text>
+  <rect x="860" y="400" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="990" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">schedule</text>
+  <text x="990" y="488" text-anchor="middle" font-size="26" fill="#4b5563">방문 일정 안내문</text>
+  <rect x="860" y="550" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="990" y="598" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">answer</text>
+  <text x="990" y="638" text-anchor="middle" font-size="26" fill="#4b5563">자가 해결 안내문</text>
+  <rect x="1220" y="400" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1350" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">record</text>
+  <text x="1350" y="488" text-anchor="middle" font-size="26" fill="#4b5563">접수 대장 기록</text>
+  <rect x="1620" y="400" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1730" y="468" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+  <path d="M 264 455 L 392 455" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 664 415 L 750 415 L 750 305 L 852 305" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 664 455 L 852 455" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 664 495 L 750 495 L 750 605 L 852 605" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="800" y="278" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">긴급</text>
+  <text x="800" y="440" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">보통</text>
+  <text x="800" y="650" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">일반</text>
+  <path d="M 1124 305 L 1290 305 L 1290 392" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1124 455 L 1212 455" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1124 605 L 1290 605 L 1290 518" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1484 455 L 1612 455" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="945" y="740" text-anchor="middle" font-size="28" font-weight="700" fill="#0055ff">조건부 엣지 route — 긴급도가 긴급이면 escalate, 보통이면 schedule, 일반이면 answer로 보낸다</text>
+</svg>

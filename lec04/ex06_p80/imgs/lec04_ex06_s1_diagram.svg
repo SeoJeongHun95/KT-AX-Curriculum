@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="780" viewBox="0 0 1890 780" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+<defs><marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/></marker>
+<marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/></marker></defs>
+<rect x="0" y="0" width="1890" height="780" fill="#ffffff"/>
+<rect x="40" y="40" width="1810" height="190" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+<text x="70" y="82" font-size="28" font-weight="700" fill="#0055ff">클라이언트 프로세스 (이 노트북)</text>
+<rect x="70" y="105" width="300" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+<text x="220" y="147" text-anchor="middle" font-size="27" font-weight="700" fill="#111827">연결 선언</text>
+<text x="220" y="183" text-anchor="middle" font-size="23" fill="#4b5563">MultiServerMCPClient</text>
+<path d="M 374 155 L 422 155" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+<rect x="430" y="105" width="300" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+<text x="580" y="147" text-anchor="middle" font-size="27" font-weight="700" fill="#111827">도구 목록 수령</text>
+<text x="580" y="183" text-anchor="middle" font-size="23" fill="#4b5563">get_tools()</text>
+<path d="M 734 155 L 782 155" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+<rect x="790" y="105" width="300" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+<text x="940" y="147" text-anchor="middle" font-size="27" font-weight="700" fill="#111827">모델에 묶기</text>
+<text x="940" y="183" text-anchor="middle" font-size="23" fill="#4b5563">bind_tools</text>
+<path d="M 1094 155 L 1142 155" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+<rect x="1150" y="105" width="300" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+<text x="1300" y="147" text-anchor="middle" font-size="27" font-weight="700" fill="#111827">루프 실행</text>
+<text x="1300" y="183" text-anchor="middle" font-size="23" fill="#4b5563">model ⇄ tools</text>
+<rect x="40" y="290" width="1810" height="110" rx="16" fill="#fff7ed" stroke="#b45309" stroke-width="3"/>
+<text x="945" y="335" text-anchor="middle" font-size="27" font-weight="700" fill="#b45309">표준입출력(stdio) 통로 — 두 프로세스를 잇는다</text>
+<text x="945" y="375" text-anchor="middle" font-size="23" fill="#7c2d12">클라이언트가 실행 명령으로 서버를 띄우고, 도구 목록과 호출 결과를 입출력으로 받는다</text>
+<path d="M 220 209 L 220 284" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+<text x="232" y="265" font-size="22" fill="#0055ff">실행 명령 (command·args)</text>
+<path d="M 580 288 L 580 215" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ahb)"/>
+<text x="592" y="265" font-size="22" fill="#0055ff">도구 목록 · 호출 결과</text>
+<rect x="40" y="440" width="1810" height="250" rx="16" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+<text x="70" y="482" font-size="28" font-weight="700" fill="#047857">서버 프로세스 — math_server.py</text>
+<rect x="70" y="505" width="440" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="4"/>
+<text x="290" y="547" text-anchor="middle" font-size="27" font-weight="700" fill="#111827">① 인스턴스 생성</text>
+<text x="290" y="583" text-anchor="middle" font-size="23" fill="#4b5563">FastMCP("math")</text>
+<path d="M 514 555 L 582 555" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+<rect x="590" y="505" width="440" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="4"/>
+<text x="810" y="547" text-anchor="middle" font-size="27" font-weight="700" fill="#111827">② 도구 등록</text>
+<text x="810" y="583" text-anchor="middle" font-size="23" fill="#4b5563">@mcp.tool()</text>
+<path d="M 1034 555 L 1102 555" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+<rect x="1110" y="505" width="440" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="4"/>
+<text x="1330" y="547" text-anchor="middle" font-size="27" font-weight="700" fill="#111827">③ 기동</text>
+<text x="1330" y="583" text-anchor="middle" font-size="23" fill="#4b5563">mcp.run(transport="stdio")</text>
+<text x="70" y="645" font-size="23" fill="#111827">도구: add(a: int, b: int) -> int  ·  multiply(a: int, b: int) -> int</text>
+<text x="70" y="677" font-size="23" fill="#111827">함수 이름 = 도구 이름 · 독스트링 = 설명 · 타입 힌트 = 규격</text>
+<path d="M 1700 400 L 1700 440" stroke="#b45309" stroke-width="3" stroke-dasharray="8 6" fill="none"/>
+</svg>

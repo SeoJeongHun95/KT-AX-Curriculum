@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="720" viewBox="0 0 1890 720" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="720" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="40" width="1810" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">상태(State) — State</text>
+  <text x="80" y="150" font-size="28" fill="#111827">messages 대화 기록(add_messages 리듀서) — 질문 · 도구 호출 요청 · 도구 결과 · 답이 차례로 쌓인다</text>
+  <text x="1810" y="95" text-anchor="end" font-size="26" fill="#4b5563">모든 노드가 함께 읽고 쓴다</text>
+
+  <!-- 상태 ↔ 노드 점선 -->
+  <path d="M 530 190 L 530 285" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1030 190 L 1030 285" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="290" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="150" y="358" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- model -->
+  <rect x="400" y="290" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="530" y="338" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">model</text>
+  <text x="530" y="378" text-anchor="middle" font-size="26" fill="#4b5563">도구 묶은 모델 호출</text>
+
+  <!-- tools -->
+  <rect x="900" y="290" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1030" y="338" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">tools</text>
+  <text x="1030" y="378" text-anchor="middle" font-size="26" fill="#4b5563">ToolNode — 도구 실행</text>
+
+  <!-- END (model 아래 왼쪽) -->
+  <rect x="40" y="560" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="150" y="628" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- 고정 엣지 START→model -->
+  <path d="M 264 345 L 392 345" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 조건부 엣지 model→tools -->
+  <path d="M 664 345 L 892 345" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="778" y="322" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">tool_calls 있음</text>
+
+  <!-- 조건부 엣지 model→END -->
+  <path d="M 470 404 L 470 480 L 150 480 L 150 552" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="310" y="470" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">tool_calls 없음</text>
+
+  <!-- 고정 엣지 tools→model (되돌아감) -->
+  <path d="M 1030 404 L 1030 520 L 600 520 L 600 412" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="815" y="552" text-anchor="middle" font-size="26" fill="#374151">도구 결과(ToolMessage)를 쌓고 model로 돌아간다</text>
+
+  <!-- MCP 서버 (노드 아님) -->
+  <path d="M 1164 345 L 1296 345" stroke="#059669" stroke-width="3" stroke-dasharray="8 6" fill="none"/>
+  <text x="1230" y="322" text-anchor="middle" font-size="24" fill="#047857">stdio</text>
+  <rect x="1300" y="270" width="550" height="150" rx="16" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+  <text x="1575" y="318" text-anchor="middle" font-size="28" font-weight="700" fill="#047857">MCP 서버 — mcp-server-time</text>
+  <text x="1575" y="358" text-anchor="middle" font-size="24" fill="#111827">uvx가 띄운 별도 프로세스 (우리 코드 아님)</text>
+  <text x="1575" y="396" text-anchor="middle" font-size="24" fill="#111827">도구: get_current_time · convert_time</text>
+
+  <!-- 하단 설명 -->
+  <text x="1300" y="620" font-size="24" fill="#4b5563">상자 = 노드 · 화살표 = 엣지 · 점선 화살표 = 조건부 엣지</text>
+  <text x="1300" y="660" font-size="24" fill="#4b5563">초록 상자 = MCP 서버 (그래프 밖, 노드가 아님)</text>
+</svg>

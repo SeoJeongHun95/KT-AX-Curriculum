@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="760" viewBox="0 0 1890 760" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="760" fill="#ffffff"/>
+  <text x="40" y="50" text-anchor="start" font-size="28" font-weight="700" fill="#0055ff">메일 부모 — MailState: email · category · priority · handled</text>
+  <rect x="40" y="80" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="140.0" y="147.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+  <rect x="340" y="80" width="320" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="500.0" y="128" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classifier</text>
+  <text x="500.0" y="168" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">call_for_mail (래퍼 함수)</text>
+  <rect x="760" y="80" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="880.0" y="128" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">handle</text>
+  <text x="880.0" y="168" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">담당자 배정</text>
+  <rect x="1100" y="80" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1200.0" y="147.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+  <path d="M 244 135 L 332 135" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 664 135 L 752 135" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1004 135 L 1092 135" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1360" y="126" text-anchor="start" font-size="24" font-weight="700" fill="#059669">email → text</text>
+  <text x="1360" y="160" text-anchor="start" font-size="24" font-weight="700" fill="#059669">label → category · urgent → priority</text>
+  <rect x="300" y="290" width="880" height="200" rx="14" fill="#ecfdf5" stroke="#059669" stroke-width="4"/>
+  <text x="740.0" y="330" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">자식 그래프 CHILD — 한 번만 컴파일 (SubState: text·label·urgent)</text>
+  <rect x="420" y="350" width="240" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="4"/>
+  <text x="540.0" y="398" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classify</text>
+  <text x="540.0" y="438" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">text → label</text>
+  <rect x="760" y="350" width="260" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="4"/>
+  <text x="890.0" y="398" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">judge_urgent</text>
+  <text x="890.0" y="438" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">label·text → urgent</text>
+  <path d="M 664 400 L 752 400" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 500 194 L 500 286" stroke="#059669" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 500 494 L 500 586" stroke="#059669" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <text x="1360" y="390" text-anchor="start" font-size="24" font-weight="400" fill="#4b5563">두 부모의 classifier가</text>
+  <text x="1360" y="422" text-anchor="start" font-size="24" font-weight="400" fill="#4b5563">같은 자식 객체를 부른다</text>
+  <text x="40" y="560" text-anchor="start" font-size="28" font-weight="700" fill="#0055ff">채팅 부모 — ChatState: message · kind · answer</text>
+  <rect x="40" y="590" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="140.0" y="657.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+  <rect x="340" y="590" width="320" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="500.0" y="638" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classifier</text>
+  <text x="500.0" y="678" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">call_for_chat (래퍼 함수)</text>
+  <rect x="760" y="590" width="260" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="890.0" y="638" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">first_reply</text>
+  <text x="890.0" y="678" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">첫 응답 문장</text>
+  <rect x="1120" y="590" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1220.0" y="657.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+  <path d="M 244 645 L 332 645" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 664 645 L 752 645" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1024 645 L 1112 645" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1360" y="636" text-anchor="start" font-size="24" font-weight="700" fill="#059669">message → text</text>
+  <text x="1360" y="670" text-anchor="start" font-size="24" font-weight="700" fill="#059669">label → kind (urgent는 버린다)</text>
+</svg>

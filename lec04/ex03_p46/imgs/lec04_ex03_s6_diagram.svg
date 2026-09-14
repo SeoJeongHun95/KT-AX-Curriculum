@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="760" viewBox="0 0 1890 760" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="760" fill="#ffffff"/>
+  <rect x="40" y="30" width="1810" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="80" text-anchor="start" font-size="30" font-weight="700" fill="#0055ff">상태(State) — TicketState (부모·국내 자식 공용)</text>
+  <text x="80" y="130" text-anchor="start" font-size="26" font-weight="400" fill="#111827">email 메일 본문 · lang 언어(ko/en) · category 분류 결과 · handled 배정 결과   |   해외 자식 전용 EnState: text · label</text>
+  <rect x="40" y="365" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="140.0" y="432.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+  <rect x="320" y="365" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="440.0" y="413" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">detect</text>
+  <text x="440.0" y="453" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">언어 감지 (규칙)</text>
+  <path d="M 244 420 L 312 420" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <rect x="720" y="200" width="620" height="170" rx="14" fill="#f5f8ff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1030.0" y="240" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">classifier_ko = 국내 자식 (직접 얹음, 방식 A)</text>
+  <rect x="900" y="250" width="260" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1030.0" y="298" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classify</text>
+  <text x="1030.0" y="338" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">email → category</text>
+  <rect x="720" y="470" width="620" height="190" rx="14" fill="#ecfdf5" stroke="#059669" stroke-width="4"/>
+  <text x="1030.0" y="510" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">classifier_en = call_en (래퍼 함수, 방식 B)</text>
+  <text x="790" y="585" text-anchor="middle" font-size="22" font-weight="700" fill="#059669">email → text</text>
+  <rect x="880" y="530" width="260" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="4"/>
+  <text x="1010.0" y="578" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classify</text>
+  <text x="1010.0" y="618" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">text → label (영어)</text>
+  <text x="1240" y="572" text-anchor="middle" font-size="21" font-weight="700" fill="#059669">label → category</text>
+  <text x="1240" y="600" text-anchor="middle" font-size="21" font-weight="400" fill="#059669">(영어 → 한국어)</text>
+  <path d="M 564 420 L 640 420 L 640 285 L 712 285" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)" stroke-dasharray="14 8"/>
+  <text x="640" y="265" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">lang = ko</text>
+  <path d="M 564 420 L 640 420 L 640 565 L 712 565" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)" stroke-dasharray="14 8"/>
+  <text x="640" y="600" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">lang = en</text>
+  <rect x="1440" y="365" width="220" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1550.0" y="413" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">handle</text>
+  <text x="1550.0" y="453" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">담당자 배정</text>
+  <rect x="1700" y="365" width="160" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1780.0" y="432.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+  <path d="M 1344 285 L 1550 285 L 1550 357" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1344 565 L 1550 565 L 1550 483" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1664 420 L 1692 420" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="945" y="720" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">조건부 엣지 route가 lang 칸만 보고 두 자식 중 하나를 고른다. 두 분기는 handle에서 합류한다.</text>
+</svg>

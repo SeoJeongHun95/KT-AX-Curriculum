@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="900" viewBox="0 0 1890 900" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="900" fill="#ffffff"/>
+  <rect x="40" y="40" width="1810" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">상태(State) — TicketState</text>
+  <text x="80" y="150" font-size="28" fill="#111827">ticket 요청 본문 · level 긴급도 · dept 담당 부서 · reply 나갈 글 · logged 기록 여부 · notified 통지 여부</text>
+  <text x="1810" y="95" text-anchor="end" font-size="26" fill="#4b5563">모든 노드가 함께 읽고 쓴다</text>
+  <path d="M 370 190 L 370 392" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 680 190 L 680 222" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1390 190 L 1390 392" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1610 190 L 1610 222" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <rect x="40" y="400" width="160" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="120" y="468" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+  <rect x="260" y="400" width="220" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="370" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">triage</text>
+  <text x="370" y="488" text-anchor="middle" font-size="26" fill="#4b5563">긴급도 판정</text>
+  <rect x="560" y="230" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="680" y="278" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">escalate</text>
+  <text x="680" y="318" text-anchor="middle" font-size="26" fill="#4b5563">엔지니어 호출문</text>
+  <rect x="560" y="550" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="680" y="598" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classify</text>
+  <text x="680" y="638" text-anchor="middle" font-size="26" fill="#4b5563">담당 부서 판정</text>
+  <rect x="880" y="400" width="280" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1020" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">guide_account</text>
+  <text x="1020" y="488" text-anchor="middle" font-size="26" fill="#4b5563">계정 안내문</text>
+  <rect x="880" y="550" width="280" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1020" y="598" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">guide_device</text>
+  <text x="1020" y="638" text-anchor="middle" font-size="26" fill="#4b5563">장비 안내문</text>
+  <rect x="880" y="700" width="280" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1020" y="748" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">guide_network</text>
+  <text x="1020" y="788" text-anchor="middle" font-size="26" fill="#4b5563">네트워크 안내문</text>
+  <rect x="1240" y="400" width="200" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1340" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">record</text>
+  <text x="1340" y="488" text-anchor="middle" font-size="26" fill="#4b5563">접수 대장 기록</text>
+  <rect x="1520" y="230" width="180" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1610" y="278" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">notify</text>
+  <text x="1610" y="318" text-anchor="middle" font-size="26" fill="#4b5563">관리자 통지</text>
+  <rect x="1740" y="400" width="140" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1810" y="468" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+  <path d="M 204 455 L 252 455" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 484 435 L 520 435 L 520 285 L 552 285" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="500" y="262" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">긴급</text>
+  <path d="M 484 475 L 520 475 L 520 605 L 552 605" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="500" y="650" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">일반</text>
+  <path d="M 804 585 L 830 585 L 830 455 L 872 455" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 804 605 L 872 605" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 804 625 L 830 625 L 830 755 L 872 755" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="660" y="700" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">부서 = 계정 / 장비 / 네트워크</text>
+  <path d="M 804 285 L 1290 285 L 1290 392" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1164 455 L 1232 455" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1164 605 L 1200 605 L 1200 518" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1164 755 L 1220 755 L 1220 518" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1444 435 L 1480 435 L 1480 285 L 1512 285" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="1466" y="262" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">긴급</text>
+  <path d="M 1444 475 L 1732 475" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="1590" y="505" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">일반</text>
+  <path d="M 1704 285 L 1810 285 L 1810 392" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="945" y="870" text-anchor="middle" font-size="28" font-weight="700" fill="#0055ff">조건부 엣지 셋 — route_level(긴급도) · route_dept(부서) · after_record(긴급이면 notify, 아니면 END)</text>
+</svg>

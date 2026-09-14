@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="640" viewBox="0 0 1890 640" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="640" fill="#ffffff"/>
+  <rect x="40" y="40" width="1810" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="90" text-anchor="start" font-size="30" font-weight="700" fill="#0055ff">상태(State) — TicketState (부모)</text>
+  <text x="80" y="140" text-anchor="start" font-size="26" font-weight="400" fill="#111827">email 메일 본문 · category 분류 결과 · priority 긴급도 · handled 배정 결과</text>
+  <text x="40" y="248" text-anchor="start" font-size="28" font-weight="700" fill="#0055ff">부모 그래프 — 래퍼 함수 call_child가 자식을 부르고 두 키를 키 이름을 되돌린다</text>
+  <rect x="40" y="325" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="140.0" y="392.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+  <rect x="300" y="280" width="760" height="200" rx="14" fill="#f5f8ff" stroke="#0055ff" stroke-width="4"/>
+  <text x="680.0" y="320" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">classifier = call_child (래퍼 함수)</text>
+  <text x="380" y="398" text-anchor="middle" font-size="24" font-weight="700" fill="#059669">email → text</text>
+  <rect x="500" y="340" width="220" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="4"/>
+  <text x="610.0" y="388" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classify</text>
+  <text x="610.0" y="428" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">text → label</text>
+  <path d="M 724 390 L 792 390" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <rect x="800" y="340" width="240" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="4"/>
+  <text x="920.0" y="388" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">judge_urgent</text>
+  <text x="920.0" y="428" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">label·text → urgent</text>
+  <text x="680" y="465" text-anchor="middle" font-size="22" font-weight="400" fill="#4b5563">자식 그래프 (SubState: text · label · urgent) — 다른 팀이 관리한다</text>
+  <rect x="1140" y="325" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1260.0" y="373" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">handle</text>
+  <text x="1260.0" y="413" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">담당자 배정</text>
+  <rect x="1460" y="325" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1560.0" y="392.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+  <path d="M 244 380 L 292 380" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1064 380 L 1132 380" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1384 380 L 1452 380" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <rect x="300" y="500" width="760" height="100" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+  <text x="680.0" y="536" text-anchor="middle" font-size="23" font-weight="700" fill="#7c2d12">키 이름 되돌리기 두 키</text>
+  <text x="680.0" y="568" text-anchor="middle" font-size="23" font-weight="400" fill="#7c2d12">label → category  ·  urgent(참/거짓) → priority(긴급/일반)</text>
+  <path d="M 680 460 L 680 500" stroke="#059669" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+</svg>

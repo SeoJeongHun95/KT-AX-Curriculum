@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="940" viewBox="0 0 1890 940" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1890" height="940" fill="#ffffff"/>
+  <rect x="40" y="40" width="1810" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="90" text-anchor="start" font-size="30" font-weight="700" fill="#0055ff">상태(State) — SharedState (부모·자식 A 공용)</text>
+  <text x="80" y="140" text-anchor="start" font-size="26" font-weight="400" fill="#111827">email 메일 본문 · category 분류 결과 · handled 배정 결과   |   자식 B 전용 SubState: text · label</text>
+  <text x="40" y="248" text-anchor="start" font-size="28" font-weight="700" fill="#0055ff">방식 A — 상태 스키마 공유: 컴파일된 자식 그래프를 노드 자리에 직접 넣는다</text>
+  <rect x="40" y="325" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="140.0" y="392.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+  <rect x="300" y="280" width="760" height="200" rx="14" fill="#f5f8ff" stroke="#0055ff" stroke-width="4"/>
+  <text x="680.0" y="320" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">classifier = 자식 그래프 A (직접 얹음)</text>
+  <rect x="420" y="340" width="220" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="530.0" y="388" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">detect</text>
+  <text x="530.0" y="428" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">언어 감지</text>
+  <rect x="780" y="340" width="220" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="890.0" y="388" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classify</text>
+  <text x="890.0" y="428" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">메일 분류</text>
+  <path d="M 644 390 L 772 390" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="680" y="465" text-anchor="middle" font-size="22" font-weight="400" fill="#4b5563">자식 A의 노드들 — 부모와 같은 SharedState를 읽고 쓴다</text>
+  <rect x="1140" y="325" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1260.0" y="373" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">handle</text>
+  <text x="1260.0" y="413" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">담당자 배정</text>
+  <rect x="1460" y="325" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1560.0" y="392.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+  <path d="M 244 380 L 292 380" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1064 380 L 1132 380" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1384 380 L 1452 380" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="40" y="588" text-anchor="start" font-size="28" font-weight="700" fill="#0055ff">방식 B — 스키마 비공유: 자식의 래퍼 함수를 노드 자리에 넣는다</text>
+  <rect x="40" y="665" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="140.0" y="732.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+  <rect x="300" y="620" width="760" height="200" rx="14" fill="#f5f8ff" stroke="#0055ff" stroke-width="4"/>
+  <text x="680.0" y="660" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">classifier = call_child_b (래퍼 함수)</text>
+  <text x="400" y="738" text-anchor="middle" font-size="24" font-weight="700" fill="#059669">email → text</text>
+  <rect x="560" y="680" width="380" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="4"/>
+  <text x="750.0" y="728" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">자식 B: classify</text>
+  <text x="750.0" y="768" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">SubState: text · label</text>
+  <text x="1000" y="726" text-anchor="middle" font-size="24" font-weight="700" fill="#059669">label →</text>
+  <text x="1000" y="756" text-anchor="middle" font-size="24" font-weight="700" fill="#059669">category</text>
+  <text x="680" y="805" text-anchor="middle" font-size="22" font-weight="400" fill="#4b5563">래퍼 함수가 키를 번역해 자식 B를 부르고, 결과를 부모 키로 되받는다</text>
+  <rect x="1140" y="665" width="240" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1260.0" y="713" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">handle</text>
+  <text x="1260.0" y="753" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">담당자 배정</text>
+  <rect x="1460" y="665" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1560.0" y="732.0" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+  <path d="M 244 720 L 292 720" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1064 720 L 1132 720" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1384 720 L 1452 720" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="945" y="900" text-anchor="middle" font-size="24" font-weight="400" fill="#4b5563">두 부모의 연결은 같다: START → classifier → handle → END. classifier 자리에 무엇이 들어갔는지는 연결에 나타나지 않는다.</text>
+</svg>

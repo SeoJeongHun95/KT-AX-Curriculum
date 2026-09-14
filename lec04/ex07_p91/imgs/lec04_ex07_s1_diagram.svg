@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="760" viewBox="0 0 1890 760" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="760" fill="#ffffff"/>
+
+  <!-- 열 머리 -->
+  <text x="330" y="60" text-anchor="middle" font-size="28" font-weight="700" fill="#4b5563">입력 (contents)</text>
+  <text x="945" y="60" text-anchor="middle" font-size="28" font-weight="700" fill="#4b5563">모델 (한 종, 버전 고정)</text>
+  <text x="1560" y="60" text-anchor="middle" font-size="28" font-weight="700" fill="#4b5563">출력 (응답 블록)</text>
+
+  <!-- 모델 기둥 -->
+  <rect x="780" y="90" width="330" height="560" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="4"/>
+  <text x="945" y="140" text-anchor="middle" font-size="30" font-weight="700" fill="#0055ff">IMG_MODEL</text>
+  <text x="945" y="180" text-anchor="middle" font-size="24" fill="#4b5563">generate_content</text>
+
+  <!-- 행 1: 비전 -->
+  <rect x="60" y="200" width="540" height="110" rx="12" fill="#ffffff" stroke="#374151" stroke-width="3"/>
+  <text x="330" y="245" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">이미지 블록 + 질문</text>
+  <text x="330" y="285" text-anchor="middle" font-size="24" fill="#4b5563">Part.from_bytes(data, mime_type) · 문자열</text>
+  <rect x="830" y="215" width="230" height="80" rx="10" fill="#ffffff" stroke="#0055ff" stroke-width="3"/>
+  <text x="945" y="265" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">vision</text>
+  <rect x="1290" y="200" width="540" height="110" rx="12" fill="#ffffff" stroke="#374151" stroke-width="3"/>
+  <text x="1560" y="245" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">글 (res.text)</text>
+  <text x="1560" y="285" text-anchor="middle" font-size="24" fill="#4b5563">두 문장 설명</text>
+  <path d="M 604 255 L 822 255" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1064 255 L 1282 255" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 행 2: 생성 -->
+  <rect x="60" y="370" width="540" height="110" rx="12" fill="#ffffff" stroke="#374151" stroke-width="3"/>
+  <text x="330" y="415" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">지시문</text>
+  <text x="330" y="455" text-anchor="middle" font-size="24" fill="#4b5563">response_modalities=["IMAGE", "TEXT"]</text>
+  <rect x="830" y="385" width="230" height="80" rx="10" fill="#ffffff" stroke="#0055ff" stroke-width="3"/>
+  <text x="945" y="435" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">paint</text>
+  <rect x="1290" y="370" width="540" height="110" rx="12" fill="#ffffff" stroke="#374151" stroke-width="3"/>
+  <text x="1560" y="415" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">이미지 블록 → 파일 저장</text>
+  <text x="1560" y="455" text-anchor="middle" font-size="24" fill="#4b5563">parts[i].inline_data.data → out_generated.jpg</text>
+  <path d="M 604 425 L 822 425" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1064 425 L 1282 425" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 행 3: 편집 -->
+  <rect x="60" y="540" width="540" height="110" rx="12" fill="#ffffff" stroke="#374151" stroke-width="3"/>
+  <text x="330" y="585" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">원본 이미지 블록 + 수정 지시문</text>
+  <text x="330" y="625" text-anchor="middle" font-size="24" fill="#4b5563">response_modalities=["IMAGE", "TEXT"]</text>
+  <rect x="830" y="555" width="230" height="80" rx="10" fill="#ffffff" stroke="#0055ff" stroke-width="3"/>
+  <text x="945" y="605" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">edit</text>
+  <rect x="1290" y="540" width="540" height="110" rx="12" fill="#ffffff" stroke="#374151" stroke-width="3"/>
+  <text x="1560" y="585" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">이미지 블록 → 파일 저장</text>
+  <text x="1560" y="625" text-anchor="middle" font-size="24" fill="#4b5563">parts[i].inline_data.data → out_edited.jpg</text>
+  <path d="M 604 595 L 822 595" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1064 595 L 1282 595" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 비용 기록 띠 -->
+  <rect x="60" y="680" width="1770" height="60" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+  <text x="945" y="720" text-anchor="middle" font-size="26" font-weight="700" fill="#047857">호출마다 usage_metadata의 토큰 수를 USAGE에 기록한다 → 마지막에 호출별 추정 비용과 합계를 표로 낸다</text>
+</svg>
