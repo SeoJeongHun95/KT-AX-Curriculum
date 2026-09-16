@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="880" viewBox="0 0 1890 880" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="880" fill="#ffffff"/>
+
+  <!-- LangSmith 서버 띠 -->
+  <rect x="40" y="40" width="1810" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="92" font-size="30" font-weight="700" fill="#0055ff">LangSmith 서버 — 프로젝트 sesac-lec05-ex03 (예산 안에서 최대한 답하기)</text>
+  <text x="80" y="142" font-size="26" fill="#111827">모델이 답한 질문의 런만 남는다 · 안내문으로 대체된 질문은 호출이 없다</text>
+
+  <!-- 골격 4단 -->
+  <rect x="40" y="250" width="422" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="251" y="300" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">① 예산 확인</text>
+  <text x="251" y="343" text-anchor="middle" font-size="22" fill="#4b5563">하루 0.002달러 · 떨어지면 안내문 대체</text>
+  <path d="M 251 384 L 251 512" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="251" y="455" text-anchor="middle" font-size="22" font-weight="700" fill="#0055ff">감싸기</text>
+  <rect x="502" y="250" width="422" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="713" y="300" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">② 티어링</text>
+  <text x="713" y="343" text-anchor="middle" font-size="22" fill="#4b5563">질문마다 모델 선택</text>
+  <path d="M 713 384 L 713 512" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="713" y="455" text-anchor="middle" font-size="22" font-weight="700" fill="#0055ff">모델 이름</text>
+  <rect x="964" y="250" width="422" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1175" y="300" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">③ 긴 안내문 호출(캐시)</text>
+  <text x="1175" y="343" text-anchor="middle" font-size="22" fill="#4b5563">모든 호출이 같은 긴 안내문</text>
+  <path d="M 1175 384 L 1175 512" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1175" y="455" text-anchor="middle" font-size="22" font-weight="700" fill="#0055ff">응답 usage</text>
+  <rect x="1426" y="250" width="422" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1637" y="300" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">④ 비용 누적·표</text>
+  <text x="1637" y="343" text-anchor="middle" font-size="22" fill="#4b5563">질문마다 1줄 → 총비용 · 대체 수</text>
+  <path d="M 1637 384 L 1637 512" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1637" y="455" text-anchor="middle" font-size="22" font-weight="700" fill="#0055ff">합산</text>
+  <!-- 호출 단계 -->
+  <rect x="40" y="520" width="1810" height="110" rx="12" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="945" y="565" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">처리 함수 handle(question): 예산 확인 → 티어링 → 긴 안내문 호출 → 비용 누적</text>
+  <text x="945" y="608" text-anchor="middle" font-size="24" fill="#4b5563">질문 8개(짧은 6 + 긴 2)를 차례로 처리한다</text>
+
+  <!-- 호출 단계 → 서버 점선 -->
+  <path d="M 945 516 L 945 178" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <text x="1000" y="215" font-size="22" fill="#0055ff">런 전송</text>
+
+  <path d="M 945 634 L 945 692" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1010" y="672" font-size="22" font-weight="700" fill="#0055ff">질문마다 1줄</text>
+  <rect x="595" y="700" width="700" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="945" y="742" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">처리 표</text>
+  <text x="945" y="780" text-anchor="middle" font-size="22" fill="#4b5563">질문 · 모델 · 비용 · 누적 · 캐시 · 상태(모델 답 / 안내문 대체) → 총비용 · 대체 수</text>
+
+  <!-- 하단 안내 -->
+  <text x="945" y="855" text-anchor="middle" font-size="24" fill="#4b5563">예산이 떨어지면 예외로 멈추지 않고 안내문으로 대체한다</text>
+</svg>

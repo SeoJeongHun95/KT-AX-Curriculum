@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="800" viewBox="0 0 1890 800" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="800" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="40" width="1810" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">상태(State) — DeskState · 분류 규격 Route(step: 비품 / 휴가 / 보안)</text>
+  <text x="80" y="150" font-size="28" fill="#111827">question 문의 · decision 분류 결과 · answer 담당 창구의 답</text>
+  <text x="1810" y="95" text-anchor="end" font-size="26" fill="#4b5563">모든 노드가 함께 읽고 쓴다</text>
+
+  <!-- 상태 ↔ 노드 점선 -->
+  <path d="M 560 190 L 560 376" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1130 190 L 1130 236" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="380" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="140" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- classify -->
+  <rect x="420" y="380" width="280" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="560" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classify</text>
+  <text x="560" y="468" text-anchor="middle" font-size="26" fill="#4b5563">창구 배정 · 구조화 출력</text>
+
+  <!-- supply -->
+  <rect x="1000" y="240" width="260" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1130" y="283" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">supply</text>
+  <text x="1130" y="320" text-anchor="middle" font-size="26" fill="#4b5563">비품 창구의 답</text>
+
+  <!-- leave -->
+  <rect x="1000" y="385" width="260" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1130" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">leave</text>
+  <text x="1130" y="465" text-anchor="middle" font-size="26" fill="#4b5563">휴가 창구의 답</text>
+
+  <!-- security -->
+  <rect x="1000" y="530" width="260" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1130" y="573" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">security</text>
+  <text x="1130" y="610" text-anchor="middle" font-size="26" fill="#4b5563">보안 창구의 답</text>
+
+  <!-- END -->
+  <rect x="1620" y="380" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1720" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- START -> classify -->
+  <path d="M 244 435 L 412 435" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 조건부 엣지: classify -> 세 창구 (점선) -->
+  <path d="M 704 425 C 850 425 850 290 992 290" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 704 435 L 992 435" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 704 445 C 850 445 850 580 992 580" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="850" y="250" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">비품</text>
+  <text x="850" y="410" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">휴가</text>
+  <text x="850" y="640" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">보안</text>
+
+  <!-- 세 창구 -> END -->
+  <path d="M 1264 290 C 1440 290 1440 425 1612 425" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1264 435 L 1612 435" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1264 580 C 1440 580 1440 445 1612 445" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 설명 -->
+  <text x="850" y="700" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">조건부 엣지 route_decision — decision 값에 짝지어진 창구 하나로만 간다</text>
+  <text x="945" y="750" text-anchor="middle" font-size="28" fill="#111827">문의 하나는 세 창구 중 하나만 거친다. 판단 기준은 Route 스키마에 있고 판단 함수는 갈 곳만 돌려준다</text>
+</svg>

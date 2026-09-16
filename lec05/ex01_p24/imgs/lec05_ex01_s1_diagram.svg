@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="760" viewBox="0 0 1890 760" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="760" fill="#ffffff"/>
+
+  <!-- LangSmith 서버 띠 -->
+  <rect x="40" y="40" width="1810" height="140" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">LangSmith 서버 — 프로젝트 sesac-lec05-ex01</text>
+  <text x="80" y="148" font-size="26" fill="#111827">트레이스 한 개 = 부모 런 faq_agent(chain) + 자식 런 faq_search(tool) · litellm.completion(llm) · 런마다 시간·토큰·비용</text>
+
+  <!-- 서버 ↔ 본선 점선 -->
+  <path d="M 1660 180 L 1660 270" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- ① 환경변수 -->
+  <rect x="40" y="275" width="380" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="230" y="325" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">① 환경변수</text>
+  <text x="230" y="368" text-anchor="middle" font-size="24" fill="#4b5563">TRACING=true · PROJECT 이름</text>
+
+  <!-- ④ 부모 런 -->
+  <rect x="700" y="275" width="490" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="945" y="325" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">④ 부모 런 faq_agent (chain)</text>
+  <text x="945" y="368" text-anchor="middle" font-size="24" fill="#4b5563">워크플로 전체를 하나의 런으로 묶는다</text>
+
+  <!-- 전송 -->
+  <rect x="1470" y="275" width="380" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1660" y="325" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">flush</text>
+  <text x="1660" y="368" text-anchor="middle" font-size="24" fill="#4b5563">남은 런을 서버에 보낸다</text>
+
+  <!-- 본선 엣지 -->
+  <path d="M 424 340 L 692 340" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="558" y="318" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">추적 켜짐</text>
+  <path d="M 1194 340 L 1462 340" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1328" y="318" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">트레이스 (질문마다 1개)</text>
+
+  <!-- ③ tool 런 -->
+  <rect x="620" y="560" width="300" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="770" y="610" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">③ tool 런</text>
+  <text x="770" y="653" text-anchor="middle" font-size="24" fill="#4b5563">faq_search (검색)</text>
+
+  <!-- ② llm 런 -->
+  <rect x="980" y="560" width="300" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1130" y="610" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">② llm 런</text>
+  <text x="1130" y="653" text-anchor="middle" font-size="24" fill="#4b5563">litellm.completion (모델 호출)</text>
+
+  <!-- 자식 → 부모 엣지 -->
+  <path d="M 770 556 L 770 413" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="770" y="495" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">자식 런</text>
+  <path d="M 1130 556 L 1130 413" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1130" y="495" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">자식 런 (ls_model_name)</text>
+
+  <!-- 하단 안내 -->
+  <text x="945" y="735" text-anchor="middle" font-size="24" fill="#4b5563">서비스 코드는 고치지 않는다 · traceable로 만든 래퍼(wrapper) 함수를 같은 이름에 다시 묶는다</text>
+</svg>

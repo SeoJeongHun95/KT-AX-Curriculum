@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="800" viewBox="0 0 1890 800" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="800" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="30" width="1810" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="80" font-size="30" font-weight="700" fill="#0055ff">상태(State) — ReportState · 배정 규격 Assign(who: research / write / review / done)</text>
+  <text x="80" y="130" font-size="28" fill="#111827">request 보고 요청 · log 작업 기록(리듀서 없음) · draft 초안 · step supervisor 진입 횟수(상한 4)</text>
+  <text x="1810" y="80" text-anchor="end" font-size="26" fill="#4b5563">부모와 서브그래프가 같은 스키마를 쓴다</text>
+
+  <!-- 상태 ↔ 노드 점선 -->
+  <path d="M 945 160 L 945 226" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="230" width="180" height="90" rx="45" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="130" y="287" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- supervisor -->
+  <rect x="685" y="230" width="520" height="90" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="945" y="268" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">supervisor</text>
+  <text x="945" y="303" text-anchor="middle" font-size="24" fill="#4b5563">다음 에이전트 결정 · Command(goto, update)</text>
+
+  <!-- END -->
+  <rect x="1670" y="230" width="180" height="90" rx="45" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1760" y="287" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- 에이전트 서브그래프 셋 -->
+  <rect x="250" y="520" width="300" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="400" y="563" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">research</text>
+  <text x="400" y="600" text-anchor="middle" font-size="24" fill="#4b5563">서브그래프 · 항목 2개</text>
+
+  <rect x="795" y="520" width="300" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="945" y="563" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">write</text>
+  <text x="945" y="600" text-anchor="middle" font-size="24" fill="#4b5563">서브그래프 · 초안 두 문장</text>
+
+  <rect x="1340" y="520" width="300" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1490" y="563" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">review</text>
+  <text x="1490" y="600" text-anchor="middle" font-size="24" fill="#4b5563">서브그래프 · 고칠 점 하나</text>
+
+  <!-- START -> supervisor -->
+  <path d="M 224 275 L 677 275" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- supervisor -> END (done) -->
+  <path d="M 1209 275 L 1662 275" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="1405" y="255" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">who=done 또는 상한 도달</text>
+
+  <!-- supervisor -> 에이전트 (goto, 점선) -->
+  <path d="M 860 324 L 380 512" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 925 324 L 925 512" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 1030 324 L 1510 512" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+
+  <!-- 에이전트 -> supervisor (고정 엣지) -->
+  <path d="M 420 516 L 900 328" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 965 516 L 965 328" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1470 516 L 990 328" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 라벨 -->
+  <text x="520" y="400" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">Command(goto=에이전트)</text>
+  <text x="1370" y="400" text-anchor="middle" font-size="24" font-weight="700" fill="#374151">끝나면 고정 엣지로 수퍼바이저 복귀</text>
+
+  <!-- 하단 설명 -->
+  <text x="945" y="700" text-anchor="middle" font-size="28" fill="#111827">에이전트에서 나가는 엣지는 전부 supervisor를 향한다. supervisor에서 에이전트로 가는 엣지는 없고 Command(goto)가 대신한다</text>
+  <text x="945" y="745" text-anchor="middle" font-size="26" fill="#4b5563">실행 순서: supervisor → research → supervisor → write → supervisor → review → supervisor(done) → END</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="800" viewBox="0 0 1890 800" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="800" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="40" width="1810" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">상태(State) — SmsState · 평가 규격 Verdict(grade: 합격 / 반려, feedback)</text>
+  <text x="80" y="150" font-size="28" fill="#111827">booking 예약 정보 · sms 문자 초안 · feedback 반려 사유 · grade 판정 · tries 시도 횟수(상한 3) · history 판정 이력(operator.add)</text>
+  <text x="1810" y="95" text-anchor="end" font-size="26" fill="#4b5563">모든 노드가 함께 읽고 쓴다</text>
+
+  <!-- 상태 ↔ 노드 점선 -->
+  <path d="M 590 190 L 590 356" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1170 190 L 1170 316" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="380" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="140" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- generator -->
+  <rect x="420" y="360" width="340" height="150" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="590" y="415" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">generator</text>
+  <text x="590" y="455" text-anchor="middle" font-size="24" fill="#4b5563">1회차: 자세히 세 문장</text>
+  <text x="590" y="487" text-anchor="middle" font-size="24" fill="#4b5563">2회차부터: 지적 반영 70자 이내</text>
+
+  <!-- evaluator (두 단) -->
+  <rect x="940" y="320" width="460" height="230" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1170" y="365" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">evaluator (두 단)</text>
+  <rect x="955" y="390" width="430" height="60" rx="8" fill="#f9fafb" stroke="#9ca3af" stroke-width="2"/>
+  <text x="1170" y="428" text-anchor="middle" font-size="21" fill="#111827">1단 규칙 채점: 글자 수 &gt; 70 → 반려(모델 없음)</text>
+  <path d="M 1170 454 L 1170 470" stroke="#374151" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+  <rect x="955" y="478" width="430" height="60" rx="8" fill="#f9fafb" stroke="#9ca3af" stroke-width="2"/>
+  <text x="1170" y="516" text-anchor="middle" font-size="21" fill="#111827">2단 모델 채점: 날짜·시간·진료과·장소 → Verdict</text>
+
+  <!-- END -->
+  <rect x="1620" y="380" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1720" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- START -> generator -> evaluator -->
+  <path d="M 244 435 L 412 435" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 764 435 L 932 435" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- evaluator -> END (조건부) -->
+  <path d="M 1404 435 L 1612 435" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="1508" y="410" text-anchor="middle" font-size="22" font-weight="700" fill="#0055ff">합격 또는 상한</text>
+
+  <!-- evaluator -> generator (되돌림) -->
+  <path d="M 1170 554 L 1170 640 L 590 640 L 590 518" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="880" y="680" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">반려 → feedback을 실어 generator로 되돌린다 (어느 단에서 반려됐든 history에 남는다)</text>
+
+  <!-- 하단 설명 -->
+  <text x="945" y="750" text-anchor="middle" font-size="28" fill="#111827">generator는 만들고 evaluator는 판정만 한다. 코드가 셀 수 있는 기준은 코드가 먼저 판정하고, 모델은 코드가 판정하지 못하는 기준만 본다</text>
+</svg>

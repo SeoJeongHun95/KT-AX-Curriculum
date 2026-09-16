@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="800" viewBox="0 0 1890 800" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="800" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="30" width="1810" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="80" font-size="30" font-weight="700" fill="#0055ff">상태(State) — FaqState(부모) · WorkerState(worker 몫) · 계획 규격 Question(no, text) / Questions</text>
+  <text x="80" y="130" font-size="28" fill="#111827">source 자료 원문 · questions 질문 계획 · answered 답한 조각(operator.add) · faq 완성 FAQ — WorkerState = question + source + answered</text>
+  <text x="1810" y="80" text-anchor="end" font-size="26" fill="#4b5563">worker는 자기 몫만 본다</text>
+
+  <!-- 상태 ↔ 노드 점선 -->
+  <path d="M 520 160 L 520 386" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1450 160 L 1450 386" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="390" width="180" height="100" rx="50" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="130" y="452" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- orchestrator -->
+  <rect x="360" y="390" width="320" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="520" y="433" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">orchestrator</text>
+  <text x="520" y="470" text-anchor="middle" font-size="24" fill="#4b5563">자료 원문 → 질문 계획(번호)</text>
+
+  <!-- worker × n -->
+  <rect x="880" y="240" width="260" height="90" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1010" y="280" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">worker</text>
+  <text x="1010" y="314" text-anchor="middle" font-size="24" fill="#4b5563">Q1 + 자료 원문</text>
+
+  <rect x="880" y="395" width="260" height="90" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1010" y="435" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">worker</text>
+  <text x="1010" y="469" text-anchor="middle" font-size="24" fill="#4b5563">Q2 + 자료 원문</text>
+
+  <rect x="880" y="550" width="260" height="90" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4" stroke-dasharray="12 8"/>
+  <text x="1010" y="590" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">worker</text>
+  <text x="1010" y="624" text-anchor="middle" font-size="24" fill="#4b5563">Qn + 자료 원문</text>
+
+  <!-- synthesizer -->
+  <rect x="1300" y="390" width="300" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1450" y="433" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">synthesizer</text>
+  <text x="1450" y="470" text-anchor="middle" font-size="24" fill="#4b5563">번호순 정렬 후 결합</text>
+
+  <!-- END -->
+  <rect x="1690" y="390" width="160" height="100" rx="50" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1770" y="452" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- START -> orchestrator -->
+  <path d="M 224 440 L 352 440" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- Send 목록 -->
+  <path d="M 684 430 C 780 430 780 285 872 285" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 684 440 L 872 440" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 684 450 C 780 450 780 595 872 595" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="520" y="535" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">Send(질문 + 자료 원문) · 길이 = worker 수</text>
+
+  <!-- worker -> synthesizer -->
+  <path d="M 1144 285 C 1220 285 1220 430 1292 430" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1144 440 L 1292 440" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1144 595 C 1220 595 1220 450 1292 450" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1450" y="535" text-anchor="middle" font-size="24" font-weight="700" fill="#374151">끝나는 순서는 보장되지 않는다</text>
+
+  <!-- synthesizer -> END -->
+  <path d="M 1604 440 L 1682 440" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 하단 설명 -->
+  <text x="945" y="705" text-anchor="middle" font-size="28" fill="#111827">worker는 한 번만 등록하고 팬아웃 수는 계획이 정한다. 몫에 자료 원문이 더해지고 synthesizer가 번호순으로 정렬한다</text>
+  <text x="945" y="750" text-anchor="middle" font-size="26" fill="#4b5563">worker가 일하는 데 필요한 정보는 Send의 상태에 전부 실어 보낸다</text>
+</svg>

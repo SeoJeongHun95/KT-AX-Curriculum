@@ -1,0 +1,217 @@
+<title>종합 구현 보고서 형식</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#eef0f3;--paper:#ffffff;--ink:#1b2027;--mute:#5f6875;--line:#d3d8df;--zebra:#f6f7f9;
+ --ok:#1f7a3f;--bad:#b3261e;--accent:#1d5fb0;--soft:#fdf1e0;--soft-line:#b45309;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e1116;--paper:#161a21;--ink:#e7eaee;--mute:#9aa3ad;--line:#2c333d;--zebra:#1b202a;
+ --ok:#7bd396;--bad:#ff8a80;--accent:#7fb2f0;--soft:#2d2113;--soft-line:#f2b25a;}}
+:root[data-theme="dark"]{--bg:#0e1116;--paper:#161a21;--ink:#e7eaee;--mute:#9aa3ad;--line:#2c333d;--zebra:#1b202a;
+ --ok:#7bd396;--bad:#ff8a80;--accent:#7fb2f0;--soft:#2d2113;--soft-line:#f2b25a;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;font-size:15px;line-height:1.62}
+.wrap{max-width:940px;margin:0 auto;padding:26px 18px 56px}
+header{border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:20px}
+h1{font-size:23px;margin:0 0 6px}
+.meta{color:var(--mute);font-size:13px;margin:0}
+h2{font-size:17px;margin:30px 0 8px;padding-top:14px;border-top:1px solid var(--line)}
+h2 .n{color:var(--mute);font-weight:400;margin-right:8px}
+h3{font-size:14.5px;margin:16px 0 6px}
+p{margin:0 0 10px}
+ul,ol{margin:0 0 10px;padding-left:20px}
+li{margin-bottom:3px}
+.panel{background:var(--paper);border:1px solid var(--line);padding:13px 15px;margin-bottom:14px}
+.scroller{overflow-x:auto;background:var(--paper);border:1px solid var(--line);margin-bottom:14px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:500;font-size:12px;letter-spacing:.04em;border-bottom:2px solid var(--line)}
+tbody tr:nth-child(even){background:var(--zebra)}
+td.k{white-space:nowrap;font-weight:700;width:150px}
+.ex{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media (max-width:760px){.ex{grid-template-columns:1fr}}
+.ex .box{background:var(--paper);border:1px solid var(--line);padding:11px 13px}
+.ex .box.bad{border-left:4px solid var(--bad)}
+.ex .box.good{border-left:4px solid var(--ok)}
+.ex .lbl{font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:5px}
+.ex .box.bad .lbl{color:var(--bad)}
+.ex .box.good .lbl{color:var(--ok)}
+.note{background:var(--soft);border-left:4px solid var(--soft-line);padding:9px 12px;font-size:14px;margin-bottom:14px}
+.mono{font-family:"IBM Plex Mono",monospace}
+.chk{background:var(--paper);border:1px solid var(--line);padding:13px 15px}
+.chk label{display:flex;gap:9px;align-items:flex-start;font-size:14px;margin-bottom:6px;cursor:pointer}
+.chk input{margin-top:5px;flex:none}
+.small{color:var(--mute);font-size:13px}
+.dia{background:var(--paper);border:1px solid var(--line);padding:14px;overflow-x:auto;margin-bottom:14px}
+.dia pre{margin:0;font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.5;white-space:pre}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>종합 구현 보고서 형식</h1>
+  <p class="meta">10일차 종합 구현 스프린트 · 제출물 안내</p>
+</header>
+
+<h2><span class="n">1</span>무엇을 하는가</h2>
+<ul>
+  <li>교육생은 직접 풀고 싶은 문제 상황을 정합니다.</li>
+  <li>교육생은 그 문제 상황을 푸는 것을 목표로 삼아 문서 4종을 작성합니다.</li>
+  <li>교육생은 문서 4종에 맞추어 코드를 작성합니다.</li>
+  <li>교육생은 시연 기록을 포함한 보고서를 제출합니다.</li>
+</ul>
+<p>주제는 교육생이 정합니다. 교육생은 예제를 따라 만들지 않고, 교육생 본인의 문제를 교육생 본인의 문서와 코드로 풉니다.</p>
+
+<h2><span class="n">2</span>문제 상황 찾기</h2>
+<p>교육생은 먼저 문제 상황을 찾습니다. 좋은 문제 상황은 다음 항목이 문제 상황 문장 안에 드러납니다.</p>
+<ul>
+  <li>누가 겪는 문제인가 — 교육생은 해당 업무를 실제로 수행하는 사람을 지목합니다.</li>
+  <li>지금은 어떻게 하고 있는가 — 교육생은 현재의 업무 방법을 그대로 적습니다.</li>
+  <li>무엇이 불편한가 — 교육생은 업무 시간이 오래 걸리는지, 업무 항목을 빠뜨리기 쉬운지, 담당자마다 결과가 다른지를 적습니다.</li>
+</ul>
+
+<div class="ex">
+  <div class="box bad">
+    <div class="lbl">나쁜 예</div>
+    <p>업무를 자동화하는 시스템을 만들고 싶습니다.</p>
+    <p class="small">해당 문장에는 누가 문제를 겪는지, 지금 무엇이 불편한지가 없습니다. 해당 문장만으로는 교육생이 무엇을 만들어야 할지 정할 수 없습니다.</p>
+  </div>
+  <div class="box good">
+    <div class="lbl">좋은 예</div>
+    <p>담당자가 매주 부서에서 온 보고 메일을 열어 요약본을 손으로 옮겨 적습니다. 담당자의 작업 시간은 매주 40분이며, 부서마다 메일 형식이 달라 담당자가 요약 항목을 빠뜨리는 일이 생깁니다.</p>
+    <p class="small">해당 문장에는 문제를 겪는 사람, 현재의 업무 방법, 불편한 지점이 모두 드러납니다.</p>
+  </div>
+</div>
+
+<h2><span class="n">3</span>목표 세우기</h2>
+<p>교육생은 문제 상황을 찾은 뒤 목표를 세웁니다. 목표는 구현을 마친 뒤에 달성 여부를 판정할 수 있어야 합니다. 교육생은 다음 조건을 지켜 목표를 적습니다.</p>
+<ul>
+  <li>교육생은 무엇을 넣으면 무엇이 나오는지를 적습니다.</li>
+  <li>교육생은 어떤 상태가 되면 목표를 달성한 것인지를 적습니다. 교육생은 목표 달성 조건을 수치 또는 확인 가능한 조건으로 적습니다.</li>
+</ul>
+
+<div class="ex">
+  <div class="box bad">
+    <div class="lbl">나쁜 예</div>
+    <p>메일 처리를 편리하게 만든다.</p>
+    <p class="small">「편리하다」는 상태는 교육생과 강사가 확인할 방법이 없습니다.</p>
+  </div>
+  <div class="box good">
+    <div class="lbl">좋은 예</div>
+    <p>보고 메일을 넣으면 정해진 요약 항목이 채워진 요약표가 나온다. 요약 항목이 비어 있으면 프로그램이 어느 메일에서 요약 항목이 비었는지 함께 표시한다.</p>
+    <p class="small">해당 목표 문장에는 입력과 출력이 있고, 교육생과 강사가 목표 달성 여부를 눈으로 확인할 수 있습니다.</p>
+  </div>
+</div>
+
+<h2><span class="n">4</span>문서 4종</h2>
+<p>교육생은 다음 문서 4종을 작성합니다.</p>
+<div class="note">교육생은 문서 4종을 각각 분리해 작성하는 방식을 권장합니다. 다만 문서 형식은 자유이며, 문서에 담아야 할 내용이 중요합니다.</div>
+
+<h3>4-1. 계획 문서</h3>
+<p>교육생은 계획 문서에 다음 내용을 적습니다.</p>
+<ul>
+  <li>교육생은 문제 상황을 매우 자세히 기술합니다.</li>
+  <li>교육생은 목표를 매우 자세히 기술합니다.</li>
+  <li>교육생은 어떤 절차로 개발할 것인지 개발 계획을 적습니다.</li>
+</ul>
+<p class="small">개발 계획 작성 힌트 — 교육생은 요구사항 문서, 아키텍처 다이어그램, 의사결정 기록을 어떤 순서로 작성할 것인지 정해 개발 계획에 적습니다.</p>
+
+<h3>4-2. 요구사항 문서</h3>
+<p>교육생은 필요한 기능과 조건을 하나씩 표의 행으로 적습니다. 교육생은 각 행을 다음 기준에 따라 칸으로 나누어 적습니다.</p>
+<div class="scroller">
+<table>
+  <thead><tr><th>기준</th><th>무엇을 적는가</th></tr></thead>
+  <tbody>
+    <tr><td class="k">목적</td><td>교육생은 해당 기능이 어떤 문제를 푸는지 적습니다.</td></tr>
+    <tr><td class="k">사용자</td><td>교육생은 누가 해당 기능을 사용하는지, 어떤 상황에서 해당 기능을 사용하는지 적습니다.</td></tr>
+    <tr><td class="k">입출력 예시</td><td>교육생은 해당 기능에 실제로 넣을 입력과 그때 나와야 할 출력을 그대로 적습니다.</td></tr>
+    <tr><td class="k">도구</td><td>교육생은 해당 기능을 무엇으로 만드는지 적습니다. 교육생은 사용할 모델, 라이브러리, 외부 도구를 적습니다.</td></tr>
+    <tr><td class="k">완료 기준</td><td>교육생은 어떤 상태가 되면 해당 기능을 다 만든 것인지 적습니다. 교육생은 완료를 확인하는 방법까지 적습니다.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="small">교육생은 요구사항 문서를 다 적은 뒤 다시 읽습니다. 요구사항 문서만 받은 사람이 교육생에게 다시 물어야 할 내용이 남아 있으면, 교육생은 해당 부분을 보강합니다.</p>
+
+<h3>4-3. 아키텍처 다이어그램</h3>
+<p>교육생은 만들 프로그램의 구조를 다이어그램으로 그려 문서로 작성합니다. 표기 규칙은 다음과 같습니다.</p>
+<ul>
+  <li>상자는 노드입니다 — 교육생은 하나의 일을 맡는 단계를 상자로 그립니다.</li>
+  <li>화살표는 흐름입니다 — 교육생은 어느 단계에서 어느 단계로 넘어가는지를 화살표로 그립니다.</li>
+  <li>화살표 위에는 상태를 적습니다 — 교육생은 앞 단계에서 다음 단계로 넘어가는 상태의 이름을 화살표 위에 적습니다.</li>
+</ul>
+<div class="dia"><pre>[입력 받기]  --원문-->  [항목 뽑기]  --항목표-->  [표로 합치기]  --요약표-->  [내보내기]
+                              |
+                         --빠진 항목 있음-->  [사람에게 확인 요청]</pre></div>
+<p>교육생은 다이어그램을 그린 뒤, 상자마다 다음 항목이 분명한지 확인합니다.</p>
+<ul>
+  <li>입력 — 해당 단계가 무엇을 받는가</li>
+  <li>책임 — 해당 단계가 어떤 역할을 맡아 무엇을 보장하는가</li>
+  <li>출력 — 해당 단계가 무엇을 내보내는가</li>
+  <li>상태 — 해당 단계가 이후 동작을 정하기 위해 무엇을 기억하는가</li>
+  <li>제약 — 해당 단계가 지켜야 할 조건은 무엇인가</li>
+  <li>경계 — 해당 단계의 권한은 어디까지이며, 해당 단계가 외부와 무엇을 주고받는가</li>
+</ul>
+<div class="note">교육생은 다이어그램을 손으로 그린 뒤 사진을 찍어 문서에 넣어도 됩니다. 교육생이 작도 도구를 새로 배울 필요는 없습니다. 상자 이름, 화살표, 화살표 위의 상태 이름이 읽히면 됩니다.</div>
+
+<h3>4-4. 의사결정 기록</h3>
+<p>의사결정 기록은 주요 의사결정 상황마다 결정을 기록하는 훈련입니다. 교육생은 개발 중 갈림길에 섰던 결정을 골라 다음 칸으로 적습니다. 결정을 내린 이유는 시간이 지나면 사라지므로, 교육생은 결정한 그날 의사결정 기록을 적습니다.</p>
+<div class="scroller">
+<table>
+  <thead><tr><th>칸</th><th>무엇을 적는가</th></tr></thead>
+  <tbody>
+    <tr><td class="k">1. 문제 / 맥락</td><td>교육생은 무엇을 결정해야 했는지, 어떤 요구사항이나 제약 때문에 해당 결정이 필요했는지 적습니다.</td></tr>
+    <tr><td class="k">2. 선택지</td><td>교육생은 어떤 대안이 있었는지 적습니다. 교육생은 최소한 실제로 고민했던 대안을 남깁니다.</td></tr>
+    <tr><td class="k">3. 판단 기준</td><td>교육생은 무엇을 중요하게 봤는지 적습니다. 판단 기준은 성능, 비용, 개발 시간, 복잡도, 보안, 유지보수 등입니다.</td></tr>
+    <tr><td class="k">4. 결정</td><td>교육생은 무엇을 선택했는지 적습니다.</td></tr>
+    <tr><td class="k">5. 근거</td><td>교육생은 왜 선택한 대안을 골랐는지, 특히 왜 다른 선택지를 버렸는지 적습니다.</td></tr>
+    <tr><td class="k">6. 결과 / 대가</td><td>교육생은 해당 결정으로 무엇이 좋아지는지, 무엇을 포기하거나 감수하는지 적습니다.</td></tr>
+    <tr><td class="k">7. 재검토 조건</td><td>교육생은 어떤 조건이 바뀌면 해당 결정을 다시 검토해야 하는지 적습니다.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2><span class="n">5</span>코드</h2>
+<ul>
+  <li>교육생은 문서 4종의 내용대로 동작하는 코드를 작성합니다.</li>
+  <li>완주 기준은 로컬 환경에서 호출이 성립하는 것입니다. 교육생이 본인 컴퓨터에서 코드를 실행해 결과가 나오면 완주입니다.</li>
+  <li>교육생은 강의에서 배운 기술만 사용합니다. 교육생이 새로운 기술을 찾아 배우는 것은 이번 과제의 범위가 아닙니다.</li>
+  <li>교육생이 코드를 외부에 배포하거나 다른 사람이 접속할 수 있게 만들 필요는 없습니다.</li>
+</ul>
+
+<h2><span class="n">6</span>보고서 구성</h2>
+<p>교육생은 보고서를 다음 순서로 작성합니다. 보고서는 명료하게 작성하는 것이 중요하고, 예쁘게 작성하는 것은 중요하지 않습니다.</p>
+<div class="scroller">
+<table>
+  <thead><tr><th>순서</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td class="k">문제 상황</td><td>교육생은 누가 문제를 겪는지, 지금 어떻게 하고 있는지, 무엇이 불편한지 적습니다. 교육생은 계획 문서에 기술한 문제 상황을 옮겨 적습니다.</td></tr>
+    <tr><td class="k">목표</td><td>교육생은 무엇을 넣으면 무엇이 나오는지, 어떤 상태가 되면 목표를 달성한 것인지 적습니다. 교육생은 계획 문서에 기술한 목표를 옮겨 적습니다.</td></tr>
+    <tr><td class="k">계획 문서</td><td>교육생은 개발 절차를 적은 계획 문서를 넣습니다.</td></tr>
+    <tr><td class="k">요구사항 문서</td><td>교육생은 기능과 조건을 행으로 적고 기준별 칸을 채운 요구사항 표를 넣습니다.</td></tr>
+    <tr><td class="k">아키텍처 다이어그램</td><td>교육생은 상자와 화살표로 그린 아키텍처 다이어그램을 넣습니다.</td></tr>
+    <tr><td class="k">의사결정 기록</td><td>교육생은 일곱 칸을 채운 의사결정 기록을 넣습니다.</td></tr>
+    <tr><td class="k">코드 위치</td><td>교육생은 코드 파일이 어느 폴더의 어느 파일인지 적고, 코드를 실행하는 명령을 함께 적습니다.</td></tr>
+    <tr><td class="k">시연 기록</td><td>교육생은 실제로 코드를 실행한 결과를 남깁니다. 교육생은 화면 캡처 또는 실행 로그를 넣습니다.</td></tr>
+    <tr><td class="k">배운 점과 고민한 점</td><td>교육생은 개발하면서 새로 알게 된 내용과 끝까지 고민한 내용을 적습니다.</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="note">보고서 파일 형식은 자유입니다. 교육생은 문서 파일, PDF, 발표 자료 중 편한 형식을 고릅니다. 교육생이 제출한 보고서와 코드는 교육생 각자의 자산으로 남아 이후 프로젝트로 이어집니다.</div>
+
+<h2><span class="n">7</span>제출 방법</h2>
+<ul>
+  <li>교육생은 보고서와 코드 파일을 같은 폴더에 담아 제출합니다.</li>
+  <li>교육생은 폴더 이름을 「이름_주제」로 정합니다.</li>
+  <li>교육생은 강사가 안내하는 폴더에 제출 폴더를 업로드합니다.</li>
+  <li>교육생은 제출을 개인별로 합니다.</li>
+</ul>
+
+<h2><span class="n">8</span>확인 항목</h2>
+<p class="small">교육생이 제출 전에 스스로 확인하는 목록입니다.</p>
+<div class="chk">
+  <label><input type="checkbox"><span>교육생이 작성한 문제 상황 문장에 문제를 겪는 사람, 현재의 업무 방법, 불편한 지점이 모두 들어 있습니다.</span></label>
+  <label><input type="checkbox"><span>교육생과 강사가 교육생이 작성한 목표 문장으로 목표 달성 여부를 판정할 수 있습니다.</span></label>
+  <label><input type="checkbox"><span>교육생이 작성한 요구사항 문서의 각 행에 목적, 사용자, 입출력 예시, 도구, 완료 기준이 모두 채워져 있습니다.</span></label>
+  <label><input type="checkbox"><span>교육생이 작성한 아키텍처 다이어그램의 화살표마다 상자 사이를 오가는 상태의 이름이 적혀 있습니다.</span></label>
+  <label><input type="checkbox"><span>교육생이 작성한 의사결정 기록에 교육생이 실제로 고민했던 대안이 남아 있습니다.</span></label>
+  <label><input type="checkbox"><span>교육생이 작성한 코드가 교육생 본인 컴퓨터에서 실행되고 결과가 나옵니다.</span></label>
+</div>
+
+</div>

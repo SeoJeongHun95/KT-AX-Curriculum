@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="760" viewBox="0 0 1890 760" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="760" fill="#ffffff"/>
+
+  <!-- 오가는 것 띠 -->
+  <rect x="40" y="40" width="1810" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="90" font-size="30" font-weight="700" fill="#0055ff">오가는 것 — 골격 하나의 설계를 적은 문서 묶음</text>
+  <text x="80" y="140" font-size="28" fill="#111827">계획의 달성 조건 → 요구사항의 완료 기준 → 다이어그램의 노드 → 갈린 판단의 기록. 단계마다 문서 하나가 묶음에 더해진다</text>
+  <text x="1810" y="90" text-anchor="end" font-size="26" fill="#4b5563">학생이 직접 쓴다 · 도우미 위임 금지</text>
+
+  <!-- 단계 상자 4 + 제출 -->
+  <rect x="60" y="300" width="330" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="225" y="345" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">① 계획 문서</text>
+  <text x="225" y="380" text-anchor="middle" font-size="22" fill="#4b5563">문제상황 · 목표 · 개발 절차</text>
+  <text x="225" y="410" text-anchor="middle" font-size="22" fill="#4b5563">01_계획문서.md</text>
+
+  <rect x="470" y="300" width="330" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="635" y="345" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">② 요구사항 역작성</text>
+  <text x="635" y="380" text-anchor="middle" font-size="22" fill="#4b5563">코드에서 행 뽑기 · 다섯 칸</text>
+  <text x="635" y="410" text-anchor="middle" font-size="22" fill="#4b5563">02_요구사항문서.md</text>
+
+  <rect x="880" y="300" width="330" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1045" y="345" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">③ 다이어그램·노드 계약</text>
+  <text x="1045" y="380" text-anchor="middle" font-size="22" fill="#4b5563">노드·엣지 · 여섯 축 · 공격</text>
+  <text x="1045" y="410" text-anchor="middle" font-size="22" fill="#4b5563">03_아키텍처다이어그램.md</text>
+
+  <rect x="1290" y="300" width="330" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1455" y="345" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">④ 의사결정 기록</text>
+  <text x="1455" y="380" text-anchor="middle" font-size="22" fill="#4b5563">갈린 판단 · 일곱 칸</text>
+  <text x="1455" y="410" text-anchor="middle" font-size="22" fill="#4b5563">04_의사결정기록.md</text>
+
+  <rect x="1690" y="300" width="160" height="130" rx="12" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1770" y="358" text-anchor="middle" font-size="26" font-weight="700" fill="#374151">⑤ 묶음</text>
+  <text x="1770" y="392" text-anchor="middle" font-size="22" fill="#4b5563">제출</text>
+
+  <!-- 앞으로 가는 화살표 -->
+  <path d="M 394 365 L 462 365" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 804 365 L 872 365" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1214 365 L 1282 365" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1624 365 L 1682 365" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 넘어가는 조건 (화살표 위) -->
+  <text x="428" y="290" text-anchor="middle" font-size="20" fill="#0055ff">달성 조건이 참·거짓</text>
+  <text x="838" y="290" text-anchor="middle" font-size="20" fill="#0055ff">완료 기준이 참·거짓</text>
+  <text x="1248" y="290" text-anchor="middle" font-size="20" fill="#0055ff">행마다 노드·엣지 대응</text>
+  <text x="1653" y="290" text-anchor="middle" font-size="20" fill="#0055ff">갈린 판단 전부 기록</text>
+
+  <!-- 되돌아가는 조건 (아래 점선) -->
+  <path d="M 1045 434 L 1045 520 L 635 520 L 635 434" stroke="#0055ff" stroke-width="3" stroke-dasharray="12 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="840" y="550" text-anchor="middle" font-size="22" fill="#0055ff">노드에 적을 입력·출력이 정해지지 않으면 ②로</text>
+
+  <path d="M 1455 434 L 1455 610 L 1045 610 L 1045 434" stroke="#0055ff" stroke-width="3" stroke-dasharray="12 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="1250" y="640" text-anchor="middle" font-size="22" fill="#0055ff">판단 기준을 적을 수 없으면 ③으로</text>
+
+  <!-- 하단 설명 -->
+  <text x="945" y="720" text-anchor="middle" font-size="28" fill="#111827">네 문서는 서로를 참조하며 하나의 설계를 이룬다. 뒤 단계에서 막히면 앞 단계로 돌아가 고치고, 묶음은 강의 07 스프린트의 입력이 된다</text>
+</svg>

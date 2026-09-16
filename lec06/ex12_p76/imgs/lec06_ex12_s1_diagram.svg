@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="800" viewBox="0 0 1890 800" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="800" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="40" width="1810" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">상태(State) — SummaryState · 평가 규격 Verdict(grade: 합격 / 반려, feedback)</text>
+  <text x="80" y="150" font-size="28" fill="#111827">minutes 회의록 · summary 요약 · feedback 반려 사유 · grade 판정 · tries 시도 횟수(상한 3)</text>
+  <text x="1810" y="95" text-anchor="end" font-size="26" fill="#4b5563">모든 노드가 함께 읽고 쓴다</text>
+
+  <!-- 상태 ↔ 노드 점선 -->
+  <path d="M 630 190 L 630 376" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1150 190 L 1150 376" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="380" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="140" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- generator -->
+  <rect x="460" y="380" width="340" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="630" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">generator</text>
+  <text x="630" y="468" text-anchor="middle" font-size="24" fill="#4b5563">요약 작성 · 지적이 있으면 반영</text>
+
+  <!-- evaluator -->
+  <rect x="980" y="380" width="340" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1150" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">evaluator</text>
+  <text x="1150" y="468" text-anchor="middle" font-size="24" fill="#4b5563">판정만 · Verdict 구조화 출력</text>
+
+  <!-- END -->
+  <rect x="1620" y="380" width="200" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1720" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- START -> generator -> evaluator -->
+  <path d="M 244 435 L 452 435" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 804 435 L 972 435" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- evaluator -> END (조건부) -->
+  <path d="M 1324 435 L 1612 435" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="1468" y="410" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">합격 또는 tries ≥ 상한</text>
+
+  <!-- evaluator -> generator (되돌림, 조건부) -->
+  <path d="M 1150 494 L 1150 600 L 630 600 L 630 498" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="890" y="640" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">반려 → feedback을 실어 generator로 되돌린다</text>
+
+  <!-- 하단 설명 -->
+  <text x="945" y="720" text-anchor="middle" font-size="28" fill="#111827">generator는 만들고 evaluator는 판정만 한다. 반려 사유는 상태의 feedback 칸을 거쳐 되돌아가고, 시도 상한이 루프를 멈춘다</text>
+</svg>

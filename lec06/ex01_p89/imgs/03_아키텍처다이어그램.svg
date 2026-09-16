@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2340" height="820" viewBox="0 0 2340 820" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahg" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="2340" height="820" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="40" width="2260" height="170" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="98" font-size="30" font-weight="700" fill="#0055ff">상태(State) — ReplyState</text>
+  <text x="80" y="146" font-size="28" fill="#111827">email 메일 본문 · category 분류 결과 · draft 답장 초안 · review 검사 판정</text>
+  <text x="80" y="186" font-size="28" fill="#111827">reject_reason 반려 사유 · attempt 초안 작성 횟수 · sent 발송 여부 · status 종료 상태</text>
+  <text x="2260" y="98" text-anchor="end" font-size="26" fill="#4b5563">모든 노드가 함께 읽고 쓴다</text>
+
+  <!-- 상태 ↔ 노드 점선 -->
+  <path d="M 520 210 L 520 300" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 940 210 L 940 300" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1360 210 L 1360 300" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1780 210 L 1780 300" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="305" width="220" height="120" rx="60" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="150" y="378" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- classify -->
+  <rect x="380" y="305" width="280" height="120" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="520" y="358" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classify</text>
+  <text x="520" y="400" text-anchor="middle" font-size="26" fill="#4b5563">메일 분류</text>
+
+  <!-- draft -->
+  <rect x="800" y="305" width="280" height="120" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="940" y="358" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">draft</text>
+  <text x="940" y="400" text-anchor="middle" font-size="26" fill="#4b5563">답장 초안 작성</text>
+
+  <!-- evaluate -->
+  <rect x="1220" y="305" width="280" height="120" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1360" y="358" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">evaluate</text>
+  <text x="1360" y="400" text-anchor="middle" font-size="26" fill="#4b5563">초안 검사</text>
+
+  <!-- send -->
+  <rect x="1640" y="305" width="280" height="120" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1780" y="358" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">send</text>
+  <text x="1780" y="400" text-anchor="middle" font-size="26" fill="#4b5563">초안 발송</text>
+
+  <!-- END -->
+  <rect x="2060" y="305" width="220" height="120" rx="60" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="2170" y="378" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- 본선 엣지 -->
+  <path d="M 264 365 L 372 365" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 664 365 L 792 365" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1084 365 L 1212 365" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1504 365 L 1632 365" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1924 365 L 2052 365" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <text x="728" y="283" text-anchor="middle" font-size="26" fill="#4b5563">스팸이 아니면</text>
+  <text x="1568" y="283" text-anchor="middle" font-size="26" fill="#4b5563">합격이면</text>
+
+  <!-- 되돌림 루프: evaluate -> draft -->
+  <path d="M 1300 425 L 1300 545 L 940 545 L 940 433" stroke="#0055ff" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1060" y="600" text-anchor="middle" font-size="26" fill="#0055ff">반려이고 attempt &lt; 3이면 반려 사유를 실어 되돌린다</text>
+
+  <!-- 상한 도달 갈래: evaluate -> END -->
+  <path d="M 1420 425 L 1420 645 L 2110 645 L 2110 433" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1765" y="686" text-anchor="middle" font-size="26" fill="#4b5563">attempt = 3이면 발송하지 않고 담당자 확인 대상으로 종료한다</text>
+
+  <!-- 스팸 갈래: classify -> END -->
+  <path d="M 520 425 L 520 760 L 2230 760 L 2230 433" stroke="#9ca3af" stroke-width="4" fill="none" marker-end="url(#ahg)"/>
+  <text x="1100" y="740" text-anchor="middle" font-size="26" fill="#6b7280">스팸이면 답장을 만들지 않고 종료한다</text>
+</svg>

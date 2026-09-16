@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="760" viewBox="0 0 1890 760" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="760" fill="#ffffff"/>
+
+  <!-- LangSmith 서버 띠 -->
+  <rect x="40" y="40" width="1810" height="140" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">LangSmith 서버 — 데이터셋 sesac-lec05-ex02-compare · 실험 기록 compare-a · compare-b</text>
+  <text x="80" y="148" font-size="26" fill="#111827">예시 한 개 = inputs(질문) + outputs(정답 텍스트) · 실험 = 버전마다 채점기 점수</text>
+
+  <!-- 서버 ↔ 본선 점선 -->
+  <path d="M 230 180 L 230 270" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 945 180 L 945 270" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- ① 데이터셋 -->
+  <rect x="40" y="275" width="380" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="230" y="325" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">① 골든 데이터셋</text>
+  <text x="230" y="368" text-anchor="middle" font-size="26" fill="#4b5563">질문 6개 + 정답 텍스트</text>
+
+  <!-- ④ 실험 실행 -->
+  <rect x="700" y="275" width="490" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="945" y="325" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">④ 실험 실행 × 2 (A · B)</text>
+  <text x="945" y="368" text-anchor="middle" font-size="26" fill="#4b5563">버전마다 evaluate를 한 번씩 돌린다</text>
+
+  <!-- 게이트/비교 (④의 마지막 동작) -->
+  <rect x="1470" y="275" width="380" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1660" y="325" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">비교 표 → 배포 후보</text>
+  <text x="1660" y="368" text-anchor="middle" font-size="26" fill="#4b5563">총점 순위 두 벌 (기준 2개 / 기준 3개)</text>
+
+  <!-- 본선 엣지 -->
+  <path d="M 424 340 L 692 340" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="558" y="318" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">inputs · reference_outputs</text>
+  <path d="M 1194 340 L 1462 340" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1328" y="318" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">채점기 평균 (버전별)</text>
+
+  <!-- ② 평가 대상 -->
+  <rect x="620" y="560" width="300" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="770" y="610" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">② 평가 대상 2개</text>
+  <text x="770" y="653" text-anchor="middle" font-size="24" fill="#4b5563">target_a · target_b</text>
+
+  <!-- ③ 채점기 -->
+  <rect x="980" y="560" width="300" height="130" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1130" y="610" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">③ 채점기 3개</text>
+  <text x="1130" y="653" text-anchor="middle" font-size="24" fill="#4b5563">judge · polite · concise</text>
+
+  <!-- 아래 → ④ 엣지 -->
+  <path d="M 770 556 L 770 413" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="770" y="495" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">outputs(답)</text>
+  <path d="M 1130 556 L 1130 413" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1130" y="495" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">score</text>
+
+  <!-- 하단 안내 -->
+  <text x="945" y="735" text-anchor="middle" font-size="24" fill="#4b5563">기준 하나(rule_concise)를 더하면 총점 순위가 뒤집힌다</text>
+</svg>

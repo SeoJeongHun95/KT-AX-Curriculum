@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="800" viewBox="0 0 1890 800" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="800" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="40" width="1810" height="150" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="95" font-size="30" font-weight="700" fill="#0055ff">상태(State) — NoticeState</text>
+  <text x="80" y="150" font-size="28" fill="#111827">draft 공지 초안 · summary 핵심 요약 · checklist 준비물 체크리스트 · title 제목 후보 · notice 합쳐진 공지문</text>
+  <text x="1810" y="95" text-anchor="end" font-size="26" fill="#4b5563">모든 노드가 함께 읽고 쓴다</text>
+
+  <!-- 상태 ↔ 노드 점선 -->
+  <path d="M 830 190 L 830 236" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1350 190 L 1350 376" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="380" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="150" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- summary -->
+  <rect x="700" y="240" width="260" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="830" y="283" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">summary</text>
+  <text x="830" y="320" text-anchor="middle" font-size="26" fill="#4b5563">핵심 요약</text>
+
+  <!-- checklist -->
+  <rect x="700" y="385" width="260" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="830" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">checklist</text>
+  <text x="830" y="465" text-anchor="middle" font-size="26" fill="#4b5563">준비물 체크리스트</text>
+
+  <!-- title -->
+  <rect x="700" y="530" width="260" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="830" y="573" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">title</text>
+  <text x="830" y="610" text-anchor="middle" font-size="26" fill="#4b5563">제목 후보</text>
+
+  <!-- aggregator -->
+  <rect x="1170" y="380" width="360" height="110" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1350" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">aggregator</text>
+  <text x="1350" y="468" text-anchor="middle" font-size="26" fill="#4b5563">공지문 결합 · 모델 호출 없음</text>
+
+  <!-- END -->
+  <rect x="1620" y="380" width="220" height="110" rx="55" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1730" y="448" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- 팬아웃: START -> 세 노드 -->
+  <path d="M 264 425 C 480 425 480 290 692 290" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 264 435 L 692 435" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 264 445 C 480 445 480 580 692 580" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="480" y="665" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">셋으로 나뉜다(동시에 시작)</text>
+
+  <!-- 팬인: 세 노드 -> aggregator -->
+  <path d="M 964 290 C 1065 290 1065 425 1162 425" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 964 435 L 1162 435" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 964 580 C 1065 580 1065 445 1162 445" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <text x="1090" y="665" text-anchor="middle" font-size="26" font-weight="700" fill="#0055ff">한 곳으로 모인다(셋이 끝난 뒤 한 번)</text>
+
+  <!-- aggregator -> END -->
+  <path d="M 1534 435 L 1612 435" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 하단 설명 -->
+  <text x="945" y="720" text-anchor="middle" font-size="28" fill="#111827">summary·checklist·title은 상태의 서로 다른 칸에 쓰므로 같은 단계에서 겹치지 않고 돈다</text>
+</svg>

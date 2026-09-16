@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="800" viewBox="0 0 1890 800" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#374151"/>
+    </marker>
+    <marker id="ahb" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#0055ff"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1890" height="800" fill="#ffffff"/>
+
+  <!-- 상태 띠 -->
+  <rect x="40" y="30" width="1810" height="130" rx="16" fill="#eef4ff" stroke="#0055ff" stroke-width="3"/>
+  <text x="80" y="80" font-size="30" font-weight="700" fill="#0055ff">상태(State) — LibraryState · 분류 규격 Desk(name: 대출 / 시설 / 행사 / 기타)</text>
+  <text x="80" y="130" font-size="28" fill="#111827">question 문의 · desk 배정 창구 · answer 담당 창구의 답 · logged 대장 기록 여부</text>
+  <text x="1810" y="80" text-anchor="end" font-size="26" fill="#4b5563">모든 노드가 함께 읽고 쓴다</text>
+
+  <!-- 상태 ↔ 노드 점선 -->
+  <path d="M 520 160 L 520 396" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1000 160 L 1000 206" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+  <path d="M 1470 160 L 1470 396" stroke="#0055ff" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+  <!-- START -->
+  <rect x="40" y="400" width="180" height="100" rx="50" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="130" y="462" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">START</text>
+
+  <!-- classify -->
+  <rect x="380" y="400" width="280" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="520" y="443" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">classify</text>
+  <text x="520" y="480" text-anchor="middle" font-size="26" fill="#4b5563">창구 배정 · 구조화 출력</text>
+
+  <!-- loan -->
+  <rect x="870" y="210" width="260" height="90" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1000" y="250" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">loan</text>
+  <text x="1000" y="284" text-anchor="middle" font-size="24" fill="#4b5563">대출 창구의 답</text>
+
+  <!-- facility -->
+  <rect x="870" y="340" width="260" height="90" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1000" y="380" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">facility</text>
+  <text x="1000" y="414" text-anchor="middle" font-size="24" fill="#4b5563">시설 창구의 답</text>
+
+  <!-- event -->
+  <rect x="870" y="470" width="260" height="90" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1000" y="510" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">event</text>
+  <text x="1000" y="544" text-anchor="middle" font-size="24" fill="#4b5563">행사 창구의 답</text>
+
+  <!-- general -->
+  <rect x="870" y="600" width="260" height="90" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1000" y="640" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">general</text>
+  <text x="1000" y="674" text-anchor="middle" font-size="24" fill="#4b5563">예비 창구(기타)의 답</text>
+
+  <!-- record -->
+  <rect x="1340" y="400" width="260" height="100" rx="12" fill="#ffffff" stroke="#0055ff" stroke-width="4"/>
+  <text x="1470" y="443" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">record</text>
+  <text x="1470" y="480" text-anchor="middle" font-size="26" fill="#4b5563">대장 기록 · 모델 없음</text>
+
+  <!-- END -->
+  <rect x="1690" y="400" width="160" height="100" rx="50" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <text x="1770" y="462" text-anchor="middle" font-size="30" font-weight="700" fill="#374151">END</text>
+
+  <!-- START -> classify -->
+  <path d="M 224 450 L 372 450" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 조건부 엣지: classify -> 네 창구 (점선) -->
+  <path d="M 664 438 C 770 438 770 255 862 255" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 664 446 C 770 446 770 385 862 385" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 664 454 C 770 454 770 515 862 515" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <path d="M 664 462 C 770 462 770 645 862 645" stroke="#0055ff" stroke-width="4" stroke-dasharray="14 8" fill="none" marker-end="url(#ahb)"/>
+  <text x="805" y="235" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">대출</text>
+  <text x="805" y="365" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">시설</text>
+  <text x="805" y="548" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">행사</text>
+  <text x="805" y="695" text-anchor="middle" font-size="24" font-weight="700" fill="#0055ff">기타</text>
+
+  <!-- 네 창구 -> record (합류) -->
+  <path d="M 1134 255 C 1240 255 1240 438 1332 438" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1134 385 C 1240 385 1240 446 1332 446" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1134 515 C 1240 515 1240 454 1332 454" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+  <path d="M 1134 645 C 1240 645 1240 462 1332 462" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- record -> END -->
+  <path d="M 1604 450 L 1682 450" stroke="#374151" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- 설명 -->
+  <text x="945" y="760" text-anchor="middle" font-size="28" fill="#111827">분기가 넷이고 그중 general은 어느 창구에도 속하지 않는 문의를 받는다. 네 분기는 record에서 다시 모인 뒤 END로 간다</text>
+</svg>
